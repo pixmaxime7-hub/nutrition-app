@@ -1,0 +1,3365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="NutriPanel">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAHX0lEQVR4nO3dSWxVVRjA8a+vTUGGQFpJBMoCykJbA2UQElqThsooJGBhpcKqbiwmmICElYkJAYEEYgImRpENTgyWKdoWCiWRQUgEJAKaMJQoTVWgKNQOPBcCllLad8899577vvv/7c/rl8efj9umh5chETFi5eKk6xlgrmHV1gzXM4iIOBuCgHVzFXioX5SI4ynMuAP/QkSMzoKOO7AXJ2T0JKiwrb8oIcML22EnbL4YMcMr281Y+dtByLDBxrb2vaGJGbbYaMlX0MQM2/w2ZbTiCRlhMHkE8byhiRlhMWnNU9DEjLB5bS7loIkZrnhpz+rPoQHXUgqa7QzXUm2w16CJGVGRSos9Bk3MiJremuQZGqo8MWi2M6Kqpza7DZqYEXVPapRHDqjyWNBsZ6SL7lplQ0OVR4JmOyPddG2WDQ1VCBqqPAyaxw2kq87tsqGhCkFDlYQIjxtIfw8aZkNDFYKGKgQNVTJ4foYmbGioQtBQhaChCkFDFYKGKgQNVQgaqhA0VCFoqELQUIWgoQpBQxWChioEDVUIGqoQNFQhaKhC0FAly/UAYfim8j0pGDrC6mu+u2+bfPJdtdXX7M6MgvHy0atv+X6dDw7tkbU1OyxMFG1saENLSudK/+y+rsdAFwRtKLf/QKkomeF6DHRB0D68UTJTcvoNdD0GOiFoHwb0eUreLH3Z9RjohKB9Wjz5JRk2KMf1GLiPoH3KzsqSpWXzXY+B+wjaggXjiiV/yFDXY0AI2orMREKWTSt3PQaEoK2ZXThRxgwf6XqM2CNoi1bMWOB6hNgjaItK8gulOL/A9RixRtCWvTOdLe0SQVtWlDdKZhVOcD1GbBF0AJZNK5fMBG+tC7zrARg9ZJiUjyt2PUYsEXRAlk6dJ9lZsfh180gh6IAMH5wrr0+a6nqM2CHoAFWWzpUBfbgEECaCDlBu/4FSUTzT9RixQtABq+ASQKgIOmAD+vSVytI5rseIDYIOwaLJZTJ8cK7rMWKBoD04eOG00bnsrCxZOnWe3WHQLYL2YE31dkkmzT5JupxLAKEgaA9+ut4gVWeOG53NTCRk+TR+cSloBO3Rutod0t7RYXR2VuEEGZvHJYAgEbRHV/9sks9OHjY+v2L6QovToCuCNrChrkrutrUanS3OL5CS/ELLE+EBgjbQdPuWr/+okUsAwSFoQ5vr98utu38bnR2bN1JmF060PBFECNpYc8sd2VS/3/g8lwCCwTvqw5ajNdLYfNPobP6QobKASwDWEbQPLW2tsrGuyvj80rL5XAKwjKB9+vxkvVz+o9Ho7LBBObJocpnlieKNoH1qv9ch62t3GZ+vLJ3DJQCLCNqC3WePy7nfrhqdzek3UCpKuARgC0FbkEwmZW3NduPzFcUzJbc/lwBsIGhLDl44IycuXzQ6O6BPX1lSOtfyRPFE0Batrv7K+Oxrk6ZyCcACgrbo5JWf5cD5H4zOZmdlydt8EoBvBG3Zmurtcs/wEsArRVNk9JBhlieKF4K27HzjNak6c8zobGYiIcun80kAfhB0ANbV7DS+BDCzYIIU5Y2yPFF8EHQAGm40ybaTh4zPr5jBJQBTBB2QjXW75U7rP0Znp4x6Tl4czSUAEwQdEC4BuEHQAdp8ZL/cNLwEMGb4SJn9/AuWJ9KPoAN0u+WubK7fZ3x+2bRyyczgj8gL3q2AbTlaa34J4OlnZOH4ErsDKUfQAWtpa5UNPi4BlD1bZG+YGCDoEHzh4xIAvCHoELTf65B1tTtdjxELBB2SPWdPGF8CQOoIOiTJZFLerza/BIDUEHSI6i6ekeOXL7geQzWCDtnqb80vAaB3BB2yU1d/kVrDSwDoHUE74OcSAHpG0A5caLwmX58+6noMlQjakfW1u6Sto931GOoQtCMNN5pk2/fmnwSA7hG0QxvrqowvAaB7BO3Q7381y8c+LgHgcQTt2Ic+LgHgcQTt2O2Wu7Lp8F7XY6hB0BHw6bEDcr35husxVCDoCGhpa5UNB80vAeB/BB0RX546Ipe4BOAbQUdE+70OWVfDJQC/CDpC9v54Qs79esX1GGmNoCMkmUzKGh+fBACCjpxDF8/K0UvnXY+RtjJGrFzM7zFCDTY0VCFoqELQUIWgoQpBQxWChioEDVUIGqoQNFQhaKhC0FCFoKEKQUMVgoYqBA1VCBqqEDRUIWioQtBQJdGwamuG6yEAGxpWbc1gQ0MVgoYqBA1VEiL/PXu4HgTw40HDbGioQtBQ5WHQPHYgXXVulw0NVQgaqjwSNI8dSDddm2VDQ5XHgmZLI1101yobGqp0GzRbGlH3pEafuKGJGlHVU5s8ckCVHoNmSyNqemuy1w1N1IiKVFpM6ZGDqOFaqg3yDA1VUg6aLQ1XvLTnaUMTNcLmtTnPjxxEjbCYtOYrTj4nHEHwszR9fVPItoZtfpvy/VMOooYtNlqyGiOPIDBhcyla/Tk02xpe2W4msADZ1uhJUMsv8I1K2Ogs6H/FQ31EIO54CvNR1NkzL3Hr5ur7qch8E0fg6S0qPxD4F/u17GlRbRElAAAAAElFTkSuQmCC">
+<title>NutriPanel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F8F3;
+    --surface: #FFFFFF;
+    --surface-soft: #F1F4EC;
+    --line: #E7EBE1;
+    --ink: #1C2620;
+    --ink-dim: #66766B;
+    --ink-faint: #99A69C;
+
+    --protein: #E4572E;
+    --protein-soft: #FCE7DE;
+    --carbs: #F0A93C;
+    --carbs-soft: #FCF0DA;
+    --fat: #1E9C8B;
+    --fat-soft: #DCF3EF;
+    --fiber: #6FA84A;
+    --fiber-soft: #E9F3E0;
+
+    --brand: #1D7A5F;
+    --brand-dark: #145C47;
+    --brand-soft: #E1F1E9;
+    --success: #2FA84F;
+    --warning: #E4A317;
+    --danger: #E14F4F;
+    --danger-soft: #FBE6E4;
+
+    --micro-1: #B27C3E;
+    --micro-2: #F2994A;
+    --micro-3: #3E8E8A;
+    --micro-4: #C79A3E;
+    --micro-5: #4A78B5;
+    --micro-6: #8B6BB5;
+
+    --radius: 20px;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --shadow-card: 0 1px 2px rgba(28,38,32,0.04), 0 10px 24px -14px rgba(28,38,32,0.14);
+    --shadow-sheet: 0 -8px 30px rgba(28,38,32,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin:0; padding:0; }
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  #root{
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 84px;
+    background: var(--bg);
+  }
+
+  ::selection{ background: var(--carbs-soft); }
+  button{ font-family: inherit; }
+  input, select{ font-family: inherit; }
+  a, button{ cursor: pointer; }
+  button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible{
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  /* Header */
+  .topbar{
+    padding: 22px 20px 6px;
+    display:flex;
+    align-items:baseline;
+    justify-content: space-between;
+  }
+  .topbar .brand-mark{
+    font-family: var(--font-display);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .topbar .brand-mark b{ color: var(--brand); }
+  .topbar .date{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    text-transform: capitalize;
+  }
+  .topbar-right{ display:flex; align-items:center; gap:10px; }
+  .settings-btn{
+    width:30px; height:30px;
+    flex-shrink:0;
+    border-radius:9px;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+  }
+  .settings-btn svg{ width:16px; height:16px; }
+  .settings-btn:active{ background: var(--line); }
+
+  .screen{ padding: 8px 20px 20px; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn{ from{ opacity:0; transform: translateY(4px); } to{ opacity:1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce){
+    .screen{ animation: none; }
+    *{ transition: none !important; animation-duration: 0.001ms !important; }
+  }
+
+  h1.page-title{
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 4px 0 16px;
+    color: var(--ink);
+  }
+
+  /* Cards */
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-card);
+  }
+  .card-title{
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin: 0 0 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap: 4px;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .badge.success{ background: var(--brand-soft); color: var(--brand-dark); }
+  .badge.warn{ background: var(--carbs-soft); color: #8a5a10; }
+
+  /* Calorie ring cluster */
+  .ring-cluster{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 6px 0 14px;
+  }
+  .ring-main{ position:relative; width:188px; height:188px; }
+  .ring-main svg{ transform: rotate(-90deg); width:100%; height:100%; }
+  .ring-main .ring-center{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .ring-center .kcal-num{
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 700;
+    line-height:1;
+    color: var(--ink);
+  }
+  .ring-center .kcal-label{
+    font-size: 11px;
+    color: var(--ink-dim);
+    margin-top: 6px;
+    text-align:center;
+  }
+  .ring-center .kcal-goal{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  .advice-headline{
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .advice-sub{
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+  .advice-burn-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+  }
+
+  .macro-rings{
+    display:flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .macro-ring-item{
+    flex:1;
+    background: var(--surface-soft);
+    border-radius: 14px;
+    padding: 12px 8px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 7px;
+    position: relative;
+  }
+  .macro-ring-item svg{ width:54px; height:54px; transform: rotate(-90deg); }
+  .macro-ring-item .m-label{
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-dim);
+  }
+  .macro-ring-item .m-val{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .macro-ring-item .m-val .of{ color: var(--ink-faint); font-weight: 400; }
+  .check-dot{
+    position:absolute; top:8px; right:8px;
+    width:16px; height:16px; border-radius:50%;
+    background: var(--success);
+    color:#fff; font-size:10px; line-height:16px; text-align:center;
+  }
+
+  /* Micro bars */
+  .micro-row{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .micro-row:last-child{ border-bottom:none; }
+  .micro-name{
+    width: 92px;
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    flex-shrink:0;
+  }
+  .micro-track{
+    flex:1;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--surface-soft);
+    overflow:hidden;
+    position:relative;
+  }
+  .micro-fill{
+    height:100%;
+    border-radius: 5px;
+    transition: width 0.4s ease;
+  }
+  .micro-val{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    width: 78px;
+    text-align:right;
+    flex-shrink:0;
+  }
+  .micro-val.over{ color: var(--danger); font-weight:600; }
+
+  /* Meal list */
+  .meal-entry{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    gap: 10px;
+  }
+  .meal-entry:last-child{ border-bottom:none; }
+  .meal-entry-info{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .meal-entry-name{ font-size: 14px; font-weight:600; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .meal-entry-meta{ font-size: 11.5px; color: var(--ink-faint); font-family: var(--font-mono); }
+  .meal-entry-kcal{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-dim);
+    flex-shrink:0;
+  }
+  .del-btn{
+    background:none; border:none; color: var(--ink-faint);
+    font-size: 16px; padding: 4px 6px; flex-shrink:0; border-radius: 8px;
+  }
+  .del-btn:hover{ color: var(--danger); background: var(--danger-soft); }
+
+  .empty-state{
+    text-align:center;
+    padding: 26px 10px;
+    color: var(--ink-faint);
+    font-size: 13px;
+  }
+
+  /* Forms */
+  .field{ margin-bottom: 14px; }
+  .field label{
+    display:block;
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  .field input, .field select{
+    width:100%;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 12px 13px;
+    border-radius: 11px;
+    font-size: 15px;
+  }
+  .field-row{ display:flex; gap: 10px; }
+  .field-row .field{ flex:1; }
+
+  .btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background: var(--brand);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px;
+    border-radius: 14px;
+    border:none;
+    font-family: var(--font-display);
+    box-shadow: 0 8px 20px -8px rgba(29,122,95,0.55);
+  }
+  .btn:active{ transform: scale(0.98); }
+  .btn:disabled{ opacity: 0.6; }
+  .btn.secondary{
+    background: var(--surface-soft);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    box-shadow: none;
+  }
+  .btn.ghost{
+    background: none;
+    color: var(--ink-dim);
+    border: 1px solid var(--line);
+    box-shadow: none;
+  }
+
+  .goal-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .goal-chip{
+    background: var(--surface-soft);
+    border-radius: 13px;
+    padding: 11px 13px;
+  }
+  .goal-chip .g-label{ font-size: 11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.04em; font-weight:600; }
+  .goal-chip .g-val{ font-family: var(--font-mono); font-size: 16px; margin-top:3px; color: var(--ink); font-weight:600; }
+
+  /* Search / food list */
+  .search-wrap{ margin-bottom: 12px; }
+  .search-wrap input{
+    width:100%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 13px 15px;
+    border-radius: 13px;
+    font-size: 15px;
+    box-shadow: var(--shadow-card);
+  }
+  .cat-tabs{
+    display:flex;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .cat-tab{
+    flex:1;
+    padding: 9px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-dim);
+    font-size: 13px;
+    font-weight: 600;
+    text-align:center;
+  }
+  .cat-tab.active{
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+  }
+  .food-list{ display:flex; flex-direction:column; gap:8px; }
+  .food-item{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 13px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow: var(--shadow-card);
+  }
+  .food-item:active{ background: var(--surface-soft); }
+  .food-item-name{ font-size: 14.5px; font-weight: 600; color: var(--ink); }
+  .food-item-kcal{ font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); }
+
+  .meal-type-tabs{
+    display:flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    overflow-x:auto;
+  }
+  .meal-type-tab{
+    flex-shrink:0;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-dim);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .meal-type-tab.active{
+    background: var(--carbs);
+    color: #4a2f00;
+    border-color: var(--carbs);
+  }
+
+  .portion-panel{
+    position: fixed;
+    inset: 0;
+    background: rgba(28,38,32,0.35);
+    display:flex;
+    align-items:flex-end;
+    z-index: 50;
+  }
+  .portion-sheet{
+    background: var(--surface);
+    border-radius: 22px 22px 0 0;
+    padding: 20px 20px 26px;
+    width:100%;
+    max-width: 480px;
+    margin: 0 auto;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-sheet);
+  }
+  .portion-sheet h3{
+    font-family: var(--font-display);
+    font-size: 18px;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .portion-sheet .food-per100{
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    margin-bottom: 16px;
+  }
+  .quick-portions{
+    display:flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .quick-portion-btn{
+    flex:1;
+    min-width: 60px;
+    padding: 9px 0;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--surface-soft);
+    color: var(--ink-dim);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .quick-portion-btn.active{
+    background: var(--brand-soft);
+    border-color: var(--brand);
+    color: var(--brand-dark);
+  }
+  .portion-preview{
+    display:flex;
+    gap: 12px;
+    margin: 14px 0 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    flex-wrap: wrap;
+  }
+  .portion-preview span b{ color: var(--ink); }
+
+  .ask-row{
+    background: var(--surface-soft);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .ask-row .ask-text{ font-size: 13px; color: var(--ink); font-weight:600; line-height:1.35; }
+  .ask-row .ask-sub{ font-size: 11.5px; color: var(--ink-faint); font-weight:400; margin-top:2px; }
+  .segmented{
+    display:flex;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .seg{
+    padding: 8px 14px;
+    background: none;
+    border:none;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-dim);
+  }
+  .seg.active{ background: var(--brand); color: #fff; }
+
+  .manual-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .manual-grid .field{ margin-bottom: 0; }
+  .manual-note{
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    margin: -6px 0 14px;
+  }
+
+  /* Bottom nav */
+  .bottom-nav{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    display:flex;
+    padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+    z-index: 40;
+  }
+  .nav-btn{
+    flex:1;
+    background:none;
+    border:none;
+    color: var(--ink-faint);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 4px;
+    padding: 6px 0;
+    border-radius: 12px;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .nav-btn svg{ width:20px; height:20px; }
+  .nav-btn.active{ color: var(--brand); }
+
+  /* History */
+  .history-day{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 13px 15px;
+    margin-bottom: 10px;
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    box-shadow: var(--shadow-card);
+  }
+  .history-bar-track{
+    flex:1;
+    height: 24px;
+    background: var(--surface-soft);
+    border-radius: 7px;
+    overflow:hidden;
+    position:relative;
+  }
+  .history-bar-fill{
+    height:100%;
+    border-radius: 7px;
+  }
+  .history-date{
+    width: 68px;
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-family: var(--font-mono);
+    flex-shrink:0;
+    text-transform: capitalize;
+    font-weight:600;
+  }
+  .history-kcal{
+    width: 56px;
+    text-align:right;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    flex-shrink:0;
+  }
+
+  .loading{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height: 60vh;
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  .toast{
+    position: fixed;
+    bottom: 92px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    color: #fff;
+    padding: 11px 18px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 60;
+    animation: toastIn 0.25s ease;
+    box-shadow: 0 10px 24px -8px rgba(28,38,32,0.4);
+  }
+  @keyframes toastIn{ from{ opacity:0; transform: translate(-50%, 8px); } to{ opacity:1; transform: translate(-50%,0);} }
+
+  /* Training */
+  .group-chip{
+    display:inline-flex;
+    align-items:center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 6px 6px 0;
+  }
+  .exo-entry{
+    background: var(--surface-soft);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 10px;
+  }
+  .exo-entry-info{ min-width:0; }
+  .exo-group-tag{
+    display:inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--brand-dark);
+    background: var(--brand-soft);
+    padding: 3px 8px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .exo-name{ font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .exo-meta{ font-size: 12.5px; color: var(--ink-dim); font-family: var(--font-mono); }
+  .exo-feeling{
+    font-size: 11.5px;
+    margin-top: 5px;
+    color: var(--ink-faint);
+  }
+  .stat-row{
+    display:flex;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .stat-box{
+    flex:1;
+    background: var(--surface-soft);
+    border-radius: 13px;
+    padding: 12px;
+    text-align:center;
+  }
+  .stat-box .s-num{ font-family: var(--font-mono); font-size: 20px; font-weight:700; color: var(--ink); }
+  .stat-box .s-label{ font-size: 11px; color: var(--ink-faint); margin-top: 2px; text-transform:uppercase; letter-spacing:0.03em; }
+
+  .session-row{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 10px;
+  }
+  .session-row:active{ background: var(--surface-soft); }
+  .session-name{ font-size: 14px; font-weight: 700; color: var(--ink); }
+  .session-meta{ font-size: 11.5px; color: var(--ink-faint); font-family: var(--font-mono); margin-top: 2px; }
+  .add-session-btn{
+    width:100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px dashed var(--line);
+    background: none;
+    color: var(--ink-dim);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* Splash */
+  .splash-wrap{
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--brand) 0%, var(--brand-dark) 100%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding: 60px 28px 50px;
+    text-align:center;
+    cursor:pointer;
+  }
+  .splash-logo{
+    width: 96px; height: 96px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.16);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 26px;
+    box-shadow: 0 20px 40px -16px rgba(0,0,0,0.35);
+    animation: splashPop 0.5s ease;
+  }
+  .splash-logo svg{ width:52px; height:52px; color:#fff; }
+  @keyframes splashPop{ from{ opacity:0; transform: scale(0.8); } to{ opacity:1; transform: scale(1); } }
+  .splash-title{
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+  .splash-title b{ font-weight:700; opacity:0.9; }
+  .splash-tag{
+    font-size: 14px;
+    color: rgba(255,255,255,0.78);
+    margin: 0 0 60px;
+  }
+  .splash-btn{
+    width:100%;
+    max-width: 320px;
+    background: #fff;
+    color: var(--brand-dark);
+    box-shadow: 0 10px 24px -10px rgba(0,0,0,0.35);
+  }
+  .splash-hint{
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Welcome screen */
+  .welcome-wrap{
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    padding: 40px 26px;
+  }
+  .welcome-badge{
+    width: 64px; height: 64px;
+    border-radius: 20px;
+    background: var(--brand);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 22px;
+    box-shadow: 0 14px 28px -12px rgba(29,122,95,0.5);
+  }
+  .welcome-badge svg{ width:32px; height:32px; color:#fff; }
+  .welcome-wrap h1{
+    font-family: var(--font-display);
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .welcome-wrap h1 b{ color: var(--brand); }
+  .welcome-wrap p.lead{
+    font-size: 15px;
+    color: var(--ink-dim);
+    line-height: 1.55;
+    margin: 0 0 30px;
+  }
+  .welcome-features{
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+  .welcome-feature{
+    display:flex;
+    align-items:flex-start;
+    gap: 13px;
+  }
+  .welcome-feature .wf-icon{
+    width: 38px; height: 38px; border-radius: 11px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .welcome-feature .wf-icon svg{ width:19px; height:19px; }
+  .welcome-feature .wf-text b{ display:block; font-size:14px; color:var(--ink); margin-bottom:2px; }
+  .welcome-feature .wf-text span{ font-size:12.5px; color:var(--ink-faint); line-height:1.4; }
+</style>
+</head>
+<body>
+<div id="root"><div class="loading">Chargement…</div></div>
+
+<script>
+(function(){
+
+  /* ---------------------------------------------------------------------
+     COMPATIBILITÉ HORS-LIGNE
+     Si l'app tourne en dehors de claude.ai (fichier HTML ouvert directement,
+     ajouté à l'écran d'accueil, etc.), window.storage n'existe pas.
+     On le remplace alors par un stockage équivalent basé sur localStorage,
+     propre à cet appareil/navigateur, pour que les données soient quand
+     même sauvegardées.
+  --------------------------------------------------------------------- */
+  if(typeof window.storage === 'undefined'){
+    const LS_PREFIX = 'nutripanel_ls__';
+    window.storage = {
+      async get(key){
+        const raw = localStorage.getItem(LS_PREFIX + key);
+        if(raw === null) return null;
+        return { key, value: raw };
+      },
+      async set(key, value){
+        localStorage.setItem(LS_PREFIX + key, value);
+        return { key, value };
+      },
+      async delete(key){
+        localStorage.removeItem(LS_PREFIX + key);
+        return { key, deleted: true };
+      },
+      async list(prefix){
+        const keys = [];
+        for(let i=0; i<localStorage.length; i++){
+          const k = localStorage.key(i);
+          if(k && k.startsWith(LS_PREFIX)){
+            const real = k.slice(LS_PREFIX.length);
+            if(!prefix || real.startsWith(prefix)) keys.push(real);
+          }
+        }
+        return { keys };
+      },
+    };
+  }
+
+  /* ---------------------------------------------------------------------
+     DONNÉES ALIMENTS & BOISSONS (valeurs approx. pour 100 g / 100 ml)
+  --------------------------------------------------------------------- */
+  const FOODS = [
+    // --- Aliments ---
+    {id:'poulet', name:'Blanc de poulet cuit', category:'aliment', unit:'g', kcal:165, protein:31, carbs:0, fat:3.6, fiber:0, vitC:0, iron:1, calcium:15, vitD:0.1, potassium:256, magnesium:29, sodium:74},
+    {id:'boeuf', name:'Bœuf haché 5% cuit', category:'aliment', unit:'g', kcal:137, protein:21, carbs:0, fat:5, fiber:0, vitC:0, iron:2.1, calcium:10, vitD:0, potassium:318, magnesium:20, sodium:66},
+    {id:'saumon', name:'Saumon cuit', category:'aliment', unit:'g', kcal:206, protein:22, carbs:0, fat:13, fiber:0, vitC:0, iron:0.5, calcium:9, vitD:11, potassium:384, magnesium:27, sodium:59},
+    {id:'thon', name:'Thon en boîte (au naturel)', category:'aliment', unit:'g', kcal:116, protein:26, carbs:0, fat:1, fiber:0, vitC:0, iron:1.3, calcium:11, vitD:1.7, potassium:237, magnesium:30, sodium:247},
+    {id:'oeuf', name:'Œuf entier', category:'aliment', unit:'g', kcal:155, protein:13, carbs:1.1, fat:11, fiber:0, vitC:0, iron:1.8, calcium:56, vitD:2, potassium:126, magnesium:12, sodium:124},
+    {id:'riz', name:'Riz blanc cuit', category:'aliment', unit:'g', kcal:130, protein:2.7, carbs:28, fat:0.3, fiber:0.4, vitC:0, iron:0.2, calcium:10, vitD:0, potassium:35, magnesium:12, sodium:1},
+    {id:'pates', name:'Pâtes cuites', category:'aliment', unit:'g', kcal:131, protein:5, carbs:25, fat:1.1, fiber:1.8, vitC:0, iron:0.5, calcium:7, vitD:0, potassium:44, magnesium:18, sodium:1},
+    {id:'pain', name:'Pain complet', category:'aliment', unit:'g', kcal:247, protein:13, carbs:41, fat:4.2, fiber:7, vitC:0, iron:2.5, calcium:107, vitD:0, potassium:230, magnesium:82, sodium:400},
+    {id:'avoine', name:'Flocons d\'avoine', category:'aliment', unit:'g', kcal:389, protein:17, carbs:66, fat:7, fiber:10, vitC:0, iron:4.7, calcium:54, vitD:0, potassium:429, magnesium:177, sodium:2},
+    {id:'pdt', name:'Pomme de terre cuite', category:'aliment', unit:'g', kcal:87, protein:1.9, carbs:20, fat:0.1, fiber:1.8, vitC:13, iron:0.3, calcium:8, vitD:0, potassium:379, magnesium:20, sodium:6},
+    {id:'patate_douce', name:'Patate douce cuite', category:'aliment', unit:'g', kcal:90, protein:2, carbs:21, fat:0.2, fiber:3, vitC:2.4, iron:0.7, calcium:30, vitD:0, potassium:337, magnesium:25, sodium:36},
+    {id:'brocoli', name:'Brocoli cuit', category:'aliment', unit:'g', kcal:35, protein:2.4, carbs:7, fat:0.4, fiber:3.3, vitC:65, iron:0.7, calcium:40, vitD:0, potassium:293, magnesium:21, sodium:33},
+    {id:'epinard', name:'Épinard cuit', category:'aliment', unit:'g', kcal:23, protein:2.9, carbs:3.8, fat:0.4, fiber:2.4, vitC:10, iron:3.6, calcium:136, vitD:0, potassium:466, magnesium:87, sodium:70},
+    {id:'carotte', name:'Carotte crue', category:'aliment', unit:'g', kcal:41, protein:0.9, carbs:10, fat:0.2, fiber:2.8, vitC:5.9, iron:0.3, calcium:33, vitD:0, potassium:320, magnesium:12, sodium:69},
+    {id:'tomate', name:'Tomate', category:'aliment', unit:'g', kcal:18, protein:0.9, carbs:3.9, fat:0.2, fiber:1.2, vitC:14, iron:0.3, calcium:10, vitD:0, potassium:237, magnesium:11, sodium:5},
+    {id:'pomme', name:'Pomme', category:'aliment', unit:'g', kcal:52, protein:0.3, carbs:14, fat:0.2, fiber:2.4, vitC:4.6, iron:0.1, calcium:6, vitD:0, potassium:107, magnesium:5, sodium:1},
+    {id:'banane', name:'Banane', category:'aliment', unit:'g', kcal:89, protein:1.1, carbs:23, fat:0.3, fiber:2.6, vitC:8.7, iron:0.3, calcium:5, vitD:0, potassium:358, magnesium:27, sodium:1},
+    {id:'orange', name:'Orange', category:'aliment', unit:'g', kcal:47, protein:0.9, carbs:12, fat:0.1, fiber:2.4, vitC:53, iron:0.1, calcium:40, vitD:0, potassium:181, magnesium:10, sodium:0},
+    {id:'avocat', name:'Avocat', category:'aliment', unit:'g', kcal:160, protein:2, carbs:9, fat:15, fiber:7, vitC:10, iron:0.6, calcium:12, vitD:0, potassium:485, magnesium:29, sodium:7},
+    {id:'amandes', name:'Amandes', category:'aliment', unit:'g', kcal:579, protein:21, carbs:22, fat:50, fiber:12.5, vitC:0, iron:3.7, calcium:269, vitD:0, potassium:733, magnesium:270, sodium:1},
+    {id:'beurre_cacahuete', name:'Beurre de cacahuète', category:'aliment', unit:'g', kcal:588, protein:25, carbs:20, fat:50, fiber:6, vitC:0, iron:1.9, calcium:43, vitD:0, potassium:649, magnesium:168, sodium:17},
+    {id:'yaourt', name:'Yaourt nature', category:'aliment', unit:'g', kcal:61, protein:3.5, carbs:4.7, fat:3.3, fiber:0, vitC:0.5, iron:0, calcium:121, vitD:0, potassium:155, magnesium:12, sodium:46},
+    {id:'fromage_blanc', name:'Fromage blanc 20%', category:'aliment', unit:'g', kcal:78, protein:8, carbs:4, fat:3, fiber:0, vitC:0, iron:0, calcium:90, vitD:0, potassium:110, magnesium:8, sodium:45},
+    {id:'lentilles', name:'Lentilles cuites', category:'aliment', unit:'g', kcal:116, protein:9, carbs:20, fat:0.4, fiber:8, vitC:1.5, iron:3.3, calcium:19, vitD:0, potassium:369, magnesium:36, sodium:2},
+    {id:'pois_chiches', name:'Pois chiches cuits', category:'aliment', unit:'g', kcal:164, protein:9, carbs:27, fat:2.6, fiber:8, vitC:1.3, iron:2.9, calcium:49, vitD:0, potassium:291, magnesium:48, sodium:7},
+    {id:'huile_olive', name:'Huile d\'olive', category:'aliment', unit:'g', kcal:884, protein:0, carbs:0, fat:100, fiber:0, vitC:0, iron:0.6, calcium:1, vitD:0, potassium:1, magnesium:0, sodium:2},
+    {id:'beurre', name:'Beurre', category:'aliment', unit:'g', kcal:717, protein:0.9, carbs:0.1, fat:81, fiber:0, vitC:0, iron:0, calcium:24, vitD:1.5, potassium:24, magnesium:2, sodium:11},
+
+    // --- Fruits ---
+    {id:'fraise', name:'Fraise', category:'aliment', unit:'g', kcal:32, protein:0.7, carbs:7.7, fat:0.3, fiber:2, vitC:59, iron:0.4, calcium:16, vitD:0, potassium:153, magnesium:13, sodium:1},
+    {id:'kiwi', name:'Kiwi', category:'aliment', unit:'g', kcal:61, protein:1.1, carbs:15, fat:0.5, fiber:3, vitC:93, iron:0.3, calcium:34, vitD:0, potassium:312, magnesium:17, sodium:3},
+    {id:'poire', name:'Poire', category:'aliment', unit:'g', kcal:57, protein:0.4, carbs:15, fat:0.1, fiber:3.1, vitC:4.3, iron:0.2, calcium:9, vitD:0, potassium:116, magnesium:7, sodium:1},
+    {id:'raisin', name:'Raisin', category:'aliment', unit:'g', kcal:69, protein:0.7, carbs:18, fat:0.2, fiber:0.9, vitC:3.2, iron:0.4, calcium:10, vitD:0, potassium:191, magnesium:7, sodium:2},
+    {id:'pasteque', name:'Pastèque', category:'aliment', unit:'g', kcal:30, protein:0.6, carbs:7.6, fat:0.2, fiber:0.4, vitC:8.1, iron:0.2, calcium:7, vitD:0, potassium:112, magnesium:10, sodium:1},
+    {id:'melon', name:'Melon', category:'aliment', unit:'g', kcal:34, protein:0.8, carbs:8.2, fat:0.2, fiber:0.9, vitC:36.7, iron:0.2, calcium:9, vitD:0, potassium:267, magnesium:12, sodium:16},
+    {id:'mangue', name:'Mangue', category:'aliment', unit:'g', kcal:60, protein:0.8, carbs:15, fat:0.4, fiber:1.6, vitC:36.4, iron:0.2, calcium:11, vitD:0, potassium:168, magnesium:10, sodium:1},
+    {id:'ananas', name:'Ananas', category:'aliment', unit:'g', kcal:50, protein:0.5, carbs:13.1, fat:0.1, fiber:1.4, vitC:47.8, iron:0.3, calcium:13, vitD:0, potassium:109, magnesium:12, sodium:1},
+    {id:'myrtilles', name:'Myrtilles', category:'aliment', unit:'g', kcal:57, protein:0.7, carbs:14.5, fat:0.3, fiber:2.4, vitC:9.7, iron:0.3, calcium:6, vitD:0, potassium:77, magnesium:6, sodium:1},
+    {id:'framboises', name:'Framboises', category:'aliment', unit:'g', kcal:52, protein:1.2, carbs:12, fat:0.7, fiber:6.5, vitC:26.2, iron:0.7, calcium:25, vitD:0, potassium:151, magnesium:22, sodium:1},
+    {id:'citron', name:'Citron', category:'aliment', unit:'g', kcal:29, protein:1.1, carbs:9.3, fat:0.3, fiber:2.8, vitC:53, iron:0.6, calcium:26, vitD:0, potassium:138, magnesium:8, sodium:2},
+    {id:'pamplemousse', name:'Pamplemousse', category:'aliment', unit:'g', kcal:42, protein:0.8, carbs:10.7, fat:0.1, fiber:1.6, vitC:33.3, iron:0.1, calcium:22, vitD:0, potassium:148, magnesium:9, sodium:0},
+    {id:'abricot', name:'Abricot', category:'aliment', unit:'g', kcal:48, protein:1.4, carbs:11.1, fat:0.4, fiber:2, vitC:10, iron:0.4, calcium:13, vitD:0, potassium:259, magnesium:10, sodium:1},
+    {id:'peche', name:'Pêche', category:'aliment', unit:'g', kcal:39, protein:0.9, carbs:9.5, fat:0.3, fiber:1.5, vitC:6.6, iron:0.3, calcium:6, vitD:0, potassium:190, magnesium:9, sodium:0},
+    {id:'prune', name:'Prune', category:'aliment', unit:'g', kcal:46, protein:0.7, carbs:11.4, fat:0.3, fiber:1.4, vitC:9.5, iron:0.2, calcium:6, vitD:0, potassium:157, magnesium:7, sodium:0},
+    {id:'cerises', name:'Cerises', category:'aliment', unit:'g', kcal:63, protein:1.1, carbs:16, fat:0.2, fiber:2.1, vitC:7, iron:0.4, calcium:13, vitD:0, potassium:222, magnesium:11, sodium:0},
+    {id:'figue', name:'Figue', category:'aliment', unit:'g', kcal:74, protein:0.8, carbs:19.2, fat:0.3, fiber:2.9, vitC:2, iron:0.4, calcium:35, vitD:0, potassium:232, magnesium:17, sodium:1},
+    {id:'datte', name:'Datte', category:'aliment', unit:'g', kcal:282, protein:2.5, carbs:75, fat:0.4, fiber:8, vitC:0, iron:1, calcium:39, vitD:0, potassium:656, magnesium:43, sodium:2},
+
+    // --- Légumes ---
+    {id:'courgette', name:'Courgette', category:'aliment', unit:'g', kcal:17, protein:1.2, carbs:3.1, fat:0.3, fiber:1, vitC:17.9, iron:0.4, calcium:16, vitD:0, potassium:261, magnesium:18, sodium:8},
+    {id:'poivron', name:'Poivron rouge', category:'aliment', unit:'g', kcal:31, protein:1, carbs:6, fat:0.3, fiber:2.1, vitC:128, iron:0.4, calcium:7, vitD:0, potassium:211, magnesium:12, sodium:4},
+    {id:'aubergine', name:'Aubergine cuite', category:'aliment', unit:'g', kcal:25, protein:1, carbs:6, fat:0.2, fiber:3, vitC:2.2, iron:0.2, calcium:9, vitD:0, potassium:229, magnesium:14, sodium:2},
+    {id:'chou_fleur', name:'Chou-fleur cuit', category:'aliment', unit:'g', kcal:25, protein:1.9, carbs:5, fat:0.3, fiber:2, vitC:48.2, iron:0.4, calcium:22, vitD:0, potassium:299, magnesium:15, sodium:30},
+    {id:'chou', name:'Chou cuit', category:'aliment', unit:'g', kcal:25, protein:1.3, carbs:5.8, fat:0.1, fiber:2.5, vitC:36.6, iron:0.5, calcium:40, vitD:0, potassium:170, magnesium:12, sodium:18},
+    {id:'haricots_verts', name:'Haricots verts cuits', category:'aliment', unit:'g', kcal:31, protein:1.8, carbs:7, fat:0.2, fiber:3.4, vitC:12.2, iron:1, calcium:37, vitD:0, potassium:211, magnesium:25, sodium:6},
+    {id:'champignon', name:'Champignon de Paris', category:'aliment', unit:'g', kcal:22, protein:3.1, carbs:3.3, fat:0.3, fiber:1, vitC:2.1, iron:0.5, calcium:3, vitD:0.2, potassium:318, magnesium:9, sodium:5},
+    {id:'concombre', name:'Concombre', category:'aliment', unit:'g', kcal:15, protein:0.7, carbs:3.6, fat:0.1, fiber:0.5, vitC:2.8, iron:0.3, calcium:16, vitD:0, potassium:147, magnesium:13, sodium:2},
+    {id:'oignon', name:'Oignon', category:'aliment', unit:'g', kcal:40, protein:1.1, carbs:9.3, fat:0.1, fiber:1.7, vitC:7.4, iron:0.2, calcium:23, vitD:0, potassium:146, magnesium:10, sodium:4},
+    {id:'salade', name:'Salade verte', category:'aliment', unit:'g', kcal:15, protein:1.4, carbs:2.9, fat:0.2, fiber:1.3, vitC:9.2, iron:0.9, calcium:36, vitD:0, potassium:194, magnesium:13, sodium:28},
+    {id:'petits_pois', name:'Petits pois cuits', category:'aliment', unit:'g', kcal:81, protein:5.4, carbs:14.5, fat:0.4, fiber:5.7, vitC:40, iron:1.5, calcium:25, vitD:0, potassium:244, magnesium:33, sodium:5},
+    {id:'mais', name:'Maïs doux', category:'aliment', unit:'g', kcal:96, protein:3.4, carbs:21, fat:1.5, fiber:2.4, vitC:6.8, iron:0.5, calcium:2, vitD:0, potassium:270, magnesium:37, sodium:15},
+
+    // --- Céréales & féculents ---
+    {id:'muesli', name:'Muesli', category:'aliment', unit:'g', kcal:362, protein:9.7, carbs:66, fat:6, fiber:8, vitC:0, iron:3.5, calcium:66, vitD:0, potassium:430, magnesium:110, sodium:90},
+    {id:'quinoa_cuit', name:'Quinoa cuit', category:'aliment', unit:'g', kcal:120, protein:4.4, carbs:21.3, fat:1.9, fiber:2.8, vitC:0, iron:1.5, calcium:17, vitD:0, potassium:172, magnesium:64, sodium:7},
+    {id:'semoule_cuite', name:'Semoule cuite', category:'aliment', unit:'g', kcal:112, protein:3.8, carbs:23, fat:0.2, fiber:1.3, vitC:0, iron:0.5, calcium:8, vitD:0, potassium:33, magnesium:8, sodium:5},
+    {id:'riz_complet_cuit', name:'Riz complet cuit', category:'aliment', unit:'g', kcal:123, protein:2.7, carbs:25.6, fat:1, fiber:1.6, vitC:0, iron:0.4, calcium:4, vitD:0, potassium:79, magnesium:39, sodium:3},
+    {id:'pain_blanc', name:'Pain blanc / baguette', category:'aliment', unit:'g', kcal:265, protein:9, carbs:49, fat:3.2, fiber:2.7, vitC:0, iron:3.6, calcium:151, vitD:0, potassium:115, magnesium:25, sodium:491},
+    {id:'cereales_petit_dej', name:'Céréales petit-déjeuner', category:'aliment', unit:'g', kcal:378, protein:7, carbs:84, fat:1, fiber:3.5, vitC:0, iron:4.5, calcium:20, vitD:0, potassium:120, magnesium:30, sodium:340},
+
+    // --- Produits laitiers ---
+    {id:'skyr', name:'Skyr nature', category:'aliment', unit:'g', kcal:63, protein:11, carbs:4, fat:0.2, fiber:0, vitC:0, iron:0, calcium:130, vitD:0, potassium:140, magnesium:11, sodium:40},
+    {id:'fromage_emmental', name:'Emmental', category:'aliment', unit:'g', kcal:380, protein:28, carbs:0.5, fat:30, fiber:0, vitC:0, iron:0.2, calcium:970, vitD:0.9, potassium:90, magnesium:30, sodium:380},
+    {id:'mozzarella', name:'Mozzarella', category:'aliment', unit:'g', kcal:280, protein:22, carbs:2.2, fat:20, fiber:0, vitC:0, iron:0.2, calcium:505, vitD:0.2, potassium:95, magnesium:20, sodium:373},
+    {id:'chevre_frais', name:'Fromage de chèvre frais', category:'aliment', unit:'g', kcal:194, protein:18, carbs:4, fat:12, fiber:0, vitC:0, iron:0.5, calcium:130, vitD:0, potassium:130, magnesium:13, sodium:250},
+
+    // --- Protéines ---
+    {id:'dinde', name:'Blanc de dinde cuit', category:'aliment', unit:'g', kcal:135, protein:30, carbs:0, fat:1, fiber:0, vitC:0, iron:1.4, calcium:21, vitD:0, potassium:239, magnesium:27, sodium:63},
+    {id:'porc', name:'Filet de porc cuit', category:'aliment', unit:'g', kcal:242, protein:27, carbs:0, fat:14, fiber:0, vitC:0, iron:0.9, calcium:19, vitD:0.5, potassium:315, magnesium:26, sodium:62},
+    {id:'jambon_blanc', name:'Jambon blanc', category:'aliment', unit:'g', kcal:145, protein:21, carbs:1.5, fat:6, fiber:0, vitC:0, iron:0.8, calcium:6, vitD:0, potassium:285, magnesium:16, sodium:1050},
+    {id:'crevettes', name:'Crevettes cuites', category:'aliment', unit:'g', kcal:99, protein:24, carbs:0.2, fat:0.3, fiber:0, vitC:0, iron:0.5, calcium:70, vitD:0, potassium:259, magnesium:39, sodium:111},
+    {id:'cabillaud', name:'Cabillaud cuit', category:'aliment', unit:'g', kcal:105, protein:23, carbs:0, fat:0.9, fiber:0, vitC:0, iron:0.4, calcium:16, vitD:1.3, potassium:371, magnesium:33, sodium:78},
+    {id:'tofu', name:'Tofu nature', category:'aliment', unit:'g', kcal:76, protein:8, carbs:1.9, fat:4.8, fiber:0.3, vitC:0, iron:5.4, calcium:350, vitD:0, potassium:121, magnesium:30, sodium:7},
+
+    // --- Légumineuses ---
+    {id:'haricots_rouges', name:'Haricots rouges cuits', category:'aliment', unit:'g', kcal:127, protein:8.7, carbs:22.8, fat:0.5, fiber:6.4, vitC:1.2, iron:2.9, calcium:28, vitD:0, potassium:405, magnesium:45, sodium:2},
+
+    // --- Oléagineux & graines ---
+    {id:'noix', name:'Noix', category:'aliment', unit:'g', kcal:654, protein:15, carbs:14, fat:65, fiber:6.7, vitC:1.3, iron:2.9, calcium:98, vitD:0, potassium:441, magnesium:158, sodium:2},
+    {id:'noisettes', name:'Noisettes', category:'aliment', unit:'g', kcal:628, protein:15, carbs:17, fat:61, fiber:9.7, vitC:6.3, iron:4.7, calcium:114, vitD:0, potassium:680, magnesium:163, sodium:0},
+    {id:'graines_chia', name:'Graines de chia', category:'aliment', unit:'g', kcal:486, protein:17, carbs:42, fat:31, fiber:34, vitC:1.6, iron:7.7, calcium:631, vitD:0, potassium:407, magnesium:335, sodium:16},
+    {id:'pistaches', name:'Pistaches', category:'aliment', unit:'g', kcal:560, protein:20, carbs:28, fat:45, fiber:10, vitC:5, iron:3.9, calcium:105, vitD:0, potassium:1025, magnesium:121, sodium:1},
+
+    // --- Boissons ---
+    {id:'lait', name:'Lait demi-écrémé', category:'boisson', unit:'ml', kcal:46, protein:3.4, carbs:5, fat:1.6, fiber:0, vitC:0, iron:0, calcium:120, vitD:1.2, potassium:150, magnesium:11, sodium:44},
+    {id:'lait_entier', name:'Lait entier', category:'boisson', unit:'ml', kcal:61, protein:3.2, carbs:4.8, fat:3.3, fiber:0, vitC:0, iron:0, calcium:113, vitD:1.3, potassium:143, magnesium:10, sodium:43},
+    {id:'cafe_noir', name:'Café noir', category:'boisson', unit:'ml', kcal:1, protein:0.1, carbs:0, fat:0, fiber:0, vitC:0, iron:0, calcium:2, vitD:0, potassium:49, magnesium:3, sodium:2},
+    {id:'cafe_lait', name:'Café au lait', category:'boisson', unit:'ml', kcal:25, protein:1.3, carbs:2, fat:1.2, fiber:0, vitC:0, iron:0, calcium:40, vitD:0.1, potassium:60, magnesium:4, sodium:15},
+    {id:'the_nature', name:'Thé nature', category:'boisson', unit:'ml', kcal:1, protein:0, carbs:0.3, fat:0, fiber:0, vitC:0, iron:0, calcium:0, vitD:0, potassium:20, magnesium:1, sodium:1},
+    {id:'boisson_energisante', name:'Boisson énergisante', category:'boisson', unit:'ml', kcal:45, protein:0, carbs:11, fat:0, fiber:0, vitC:0, iron:0, calcium:0, vitD:0, potassium:1, magnesium:0, sodium:105},
+    {id:'soda_cola', name:'Soda cola', category:'boisson', unit:'ml', kcal:42, protein:0, carbs:10.6, fat:0, fiber:0, vitC:0, iron:0, calcium:0, vitD:0, potassium:0, magnesium:0, sodium:4},
+    {id:'jus_orange', name:'Jus d\'orange', category:'boisson', unit:'ml', kcal:45, protein:0.7, carbs:10.4, fat:0.2, fiber:0.2, vitC:50, iron:0.2, calcium:11, vitD:0, potassium:200, magnesium:11, sodium:1},
+    {id:'whey', name:'Whey protéine (poudre)', category:'boisson', unit:'g', kcal:380, protein:75, carbs:8, fat:5, fiber:1, vitC:0, iron:1, calcium:500, vitD:0, potassium:300, magnesium:40, sodium:250},
+    {id:'boisson_proteinee', name:'Boisson protéinée prête à boire', category:'boisson', unit:'ml', kcal:60, protein:10, carbs:3, fat:1, fiber:0, vitC:0, iron:0, calcium:100, vitD:0, potassium:150, magnesium:10, sodium:80},
+    {id:'boisson_isotonique', name:'Boisson isotonique (sport)', category:'boisson', unit:'ml', kcal:24, protein:0, carbs:6, fat:0, fiber:0, vitC:5, iron:0, calcium:2, vitD:0, potassium:25, magnesium:3, sodium:41},
+  ];
+
+  const MEAL_TYPES = [
+    {id:'petit-dej', label:'Petit-déj'},
+    {id:'dejeuner', label:'Déjeuner'},
+    {id:'diner', label:'Dîner'},
+    {id:'collation', label:'Collation'},
+  ];
+
+  const NUTRIENT_KEYS = ['protein','carbs','fat','fiber','vitC','iron','calcium','vitD','potassium','magnesium','sodium'];
+
+  const MUSCLE_GROUPS = ['Pectoraux','Dos','Épaules','Biceps','Triceps','Jambes','Fessiers','Abdos','Full body / Cardio'];
+
+  const EXERCISE_DB = {
+    'Pectoraux': ['Développé couché barre', 'Développé couché haltères', 'Développé incliné barre', 'Développé incliné haltères', 'Développé décliné barre', 'Écarté couché haltères', 'Écarté à la poulie vis-à-vis', 'Pec deck (machine)', 'Développé couché Smith machine', 'Presse pectoraux (machine)', 'Chest press (machine)', 'Dips prise large', 'Pompes lestées', 'Pompes classiques'],
+    'Dos': ['Tractions pronation', 'Tractions supination', 'Tractions assistées (machine)', 'Rowing barre', 'Rowing haltère un bras', 'Tirage horizontal poulie basse', 'Tirage vertical poulie haute', 'Tirage vertical prise serrée', 'Lat pulldown (machine)', 'Rowing assis (machine)', 'Rowing T-bar', 'Soulevé de terre', 'Pull-over à la poulie', 'Hyperextensions'],
+    'Épaules': ['Développé militaire barre', 'Développé militaire haltères', 'Développé Arnold', 'Élévations latérales haltères', 'Élévations latérales à la poulie', 'Oiseau (élévations arrière)', 'Rowing menton', 'Développé épaules (machine)', 'Élévations frontales', 'Face pull à la poulie'],
+    'Biceps': ['Curl barre', 'Curl barre EZ', 'Curl haltères alterné', 'Curl marteau', 'Curl pupitre (Scott)', 'Curl à la poulie basse', 'Curl concentré', 'Curl biceps (machine)'],
+    'Triceps': ['Dips', 'Extension nuque haltère', 'Barre au front', 'Pushdown à la poulie (corde)', 'Pushdown à la poulie (barre)', 'Kickback haltère', 'Extension triceps (machine)', 'Dips assistés (machine)'],
+    'Jambes': ['Squat barre', 'Squat gobelet', 'Squat Smith machine', 'Presse à cuisses (machine)', 'Fentes marchées', 'Fentes bulgares', 'Leg extension (machine)', 'Leg curl allongé (machine)', 'Leg curl assis (machine)', 'Soulevé de terre jambes tendues', 'Hack squat (machine)', 'Mollets debout (machine)', 'Mollets assis (machine)'],
+    'Fessiers': ['Hip thrust', 'Hip thrust (machine)', 'Squat sumo', 'Soulevé de terre roumain', 'Fentes bulgares', 'Abduction hanche (machine)', 'Kickback fessiers à la poulie', 'Good morning'],
+    'Abdos': ['Crunch', 'Crunch à la poulie haute', 'Planche', 'Relevé de jambes suspendu', 'Gainage latéral', 'Ab wheel (roulette abdominale)', 'Crunch (machine)', 'Russian twist'],
+    'Full body / Cardio': ['Burpees', 'Corde à sauter', 'Rameur', 'Mountain climbers', 'Circuit full body', 'Vélo elliptique', 'Tapis de course', 'Vélo d\'appartement', 'Kettlebell swing'],
+  };
+
+  const SPLIT_TEMPLATES = {
+    1: [
+      { name: 'Full body', groups: ['Pectoraux','Dos','Jambes','Épaules','Abdos'] },
+    ],
+    2: [
+      { name: 'Haut du corps', groups: ['Pectoraux','Dos','Épaules','Biceps','Triceps'] },
+      { name: 'Bas du corps', groups: ['Jambes','Fessiers','Abdos'] },
+    ],
+    3: [
+      { name: 'Push (Pectoraux / Épaules / Triceps)', groups: ['Pectoraux','Épaules','Triceps'] },
+      { name: 'Pull (Dos / Biceps)', groups: ['Dos','Biceps'] },
+      { name: 'Jambes', groups: ['Jambes','Fessiers','Abdos'] },
+    ],
+    4: [
+      { name: 'Haut du corps A', groups: ['Pectoraux','Épaules','Triceps'] },
+      { name: 'Bas du corps A', groups: ['Jambes','Fessiers'] },
+      { name: 'Haut du corps B', groups: ['Dos','Biceps','Épaules'] },
+      { name: 'Bas du corps B', groups: ['Jambes','Fessiers','Abdos'] },
+    ],
+    5: [
+      { name: 'Pectoraux', groups: ['Pectoraux','Triceps'] },
+      { name: 'Dos', groups: ['Dos','Biceps'] },
+      { name: 'Jambes', groups: ['Jambes','Fessiers'] },
+      { name: 'Épaules & Abdos', groups: ['Épaules','Abdos'] },
+      { name: 'Bras & Cardio', groups: ['Biceps','Triceps','Full body / Cardio'] },
+    ],
+    6: [
+      { name: 'Push', groups: ['Pectoraux','Épaules','Triceps'] },
+      { name: 'Pull', groups: ['Dos','Biceps'] },
+      { name: 'Jambes', groups: ['Jambes','Fessiers','Abdos'] },
+      { name: 'Push', groups: ['Pectoraux','Épaules','Triceps'] },
+      { name: 'Pull', groups: ['Dos','Biceps'] },
+      { name: 'Jambes', groups: ['Jambes','Fessiers','Abdos'] },
+    ],
+  };
+
+  function templatesForCount(n){
+    if(SPLIT_TEMPLATES[n]) return SPLIT_TEMPLATES[n];
+    const base = SPLIT_TEMPLATES[6];
+    const out = [];
+    for(let i=0;i<n;i++) out.push(base[i % base.length]);
+    return out;
+  }
+
+  function setsRepsFor(level, objectif){
+    const sets = level === 'debutant' ? 3 : (level === 'avance' ? 5 : 4);
+    let reps;
+    if(objectif === 'perte') reps = 15;
+    else if(objectif === 'prise') reps = (level === 'debutant' ? 10 : 8);
+    else reps = 10;
+    return { sets, reps };
+  }
+
+  function pickExercises(groups, dayIndex){
+    const perGroup = groups.length <= 3 ? 2 : 1;
+    const list = [];
+    groups.forEach(g => {
+      const pool = EXERCISE_DB[g] || ['Exercice général'];
+      for(let i=0; i<perGroup; i++){
+        const idx = (dayIndex * perGroup + i) % pool.length;
+        list.push({ group: g, exercise: pool[idx] });
+      }
+    });
+    return list;
+  }
+  const ACTIVITY_TYPES = [
+    {id:'course', label:'Course à pied', met:8},
+    {id:'marche', label:'Marche rapide', met:4.5},
+    {id:'velo', label:'Vélo', met:7.5},
+    {id:'natation', label:'Natation', met:6},
+    {id:'football', label:'Football', met:7},
+    {id:'basketball', label:'Basketball', met:6.5},
+    {id:'tennis', label:'Tennis', met:7},
+    {id:'rugby', label:'Rugby', met:8.3},
+    {id:'boxe', label:'Boxe', met:7.8},
+    {id:'randonnee', label:'Randonnée', met:6},
+    {id:'ski', label:'Ski', met:7},
+    {id:'danse', label:'Danse', met:4.8},
+    {id:'yoga', label:'Yoga', met:2.5},
+    {id:'corde_a_sauter', label:'Corde à sauter', met:10},
+    {id:'aviron', label:'Aviron / rameur', met:7},
+    {id:'golf', label:'Golf', met:4.8},
+    {id:'autre', label:'Autre activité', met:5},
+  ];
+
+  const WEEKDAY_LABELS = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  const FEELINGS = [
+    {id:'', label:'Aucun'},
+    {id:'facile', label:'😌 Facile'},
+    {id:'modere', label:'😐 Modéré'},
+    {id:'difficile', label:'🥵 Difficile'},
+  ];
+
+  const GOAL_FIELDS = [
+    {key:'calories', label:'Calories', unit:'kcal'},
+    {key:'protein', label:'Protéines', unit:'g'},
+    {key:'carbs', label:'Glucides', unit:'g'},
+    {key:'fat', label:'Lipides', unit:'g'},
+    {key:'fiber', label:'Fibres', unit:'g'},
+    {key:'vitC', label:'Vitamine C', unit:'mg'},
+    {key:'iron', label:'Fer', unit:'mg'},
+    {key:'calcium', label:'Calcium', unit:'mg'},
+    {key:'vitD', label:'Vitamine D', unit:'µg'},
+    {key:'potassium', label:'Potassium', unit:'mg'},
+    {key:'magnesium', label:'Magnésium', unit:'mg'},
+    {key:'sodiumMax', label:'Sodium max', unit:'mg'},
+  ];
+
+  /* ---------------------------------------------------------------------
+     THÈME
+  --------------------------------------------------------------------- */
+  const DEFAULT_THEME = { accent: '#1D7A5F', bg: '#F7F8F3' };
+
+  function shadeColor(hex, percent){
+    hex = hex.replace('#','');
+    if(hex.length === 3) hex = hex.split('').map(c => c+c).join('');
+    const num = parseInt(hex, 16);
+    let r = (num >> 16) & 255;
+    let g = (num >> 8) & 255;
+    let b = num & 255;
+    const t = percent < 0 ? 0 : 255;
+    const p = Math.abs(percent) / 100;
+    r = Math.round((t - r) * p) + r;
+    g = Math.round((t - g) * p) + g;
+    b = Math.round((t - b) * p) + b;
+    return '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('');
+  }
+
+  function applyThemeVars(theme){
+    const root = document.documentElement;
+    root.style.setProperty('--brand', theme.accent);
+    root.style.setProperty('--brand-dark', shadeColor(theme.accent, -18));
+    root.style.setProperty('--brand-soft', shadeColor(theme.accent, 84));
+    root.style.setProperty('--bg', theme.bg);
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉTAT
+  --------------------------------------------------------------------- */
+  let state = {
+    loaded: false,
+    profile: null,
+    screen: 'splash',      // splash | welcome | profile | today | add | training | history
+    afterSplashScreen: null,
+    logs: {},
+    customFoods: {},          // { foodId: {id,name,category,unit,kcal,...} }
+    customFoodOpen: false,
+    customFoodCategory: 'aliment',
+    theme: { ...DEFAULT_THEME },
+    settingsOpen: false,
+    portionFood: null,
+    portionGrams: 100,
+    portionManual: false,
+    manualValues: { kcal:0, protein:0, carbs:0, fat:0 },
+    mealType: 'petit-dej',
+    searchQuery: '',
+    foodCategory: 'tous',   // tous | aliment | boisson
+    toast: null,
+    trainingLastGroup: 'Pectoraux',
+    sessions: {},             // { sessionId: {id,date,name,status,exercises:[]} }
+    activities: {},           // { activityId: {id,date,type,typeLabel,duration,kcal,manual} }
+    trainingSubTab: 'current', // current | week
+    openSessionId: null,
+    weekAddingDate: null,
+    editingGoals: false,
+    aiPlanOpen: false,
+    aiPlanDays: [],
+    aiPlanLevel: 'intermediaire',
+    aiPlanLoading: false,
+    weeklyRecapOpen: false,
+    weeklyRecapStep: 'recap',   // recap | adjust
+    weeklyRecapWeekStart: null,
+    weeklyRecapDates: null,
+    sessionAnalysisOpen: false,
+    sessionAnalysisData: null,
+  };
+
+  function todayKey(){
+    const d = new Date();
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+
+  /* ---------------------------------------------------------------------
+     CALCUL DES OBJECTIFS
+  --------------------------------------------------------------------- */
+  function computeTargets(p){
+    const bmr = p.sexe === 'homme'
+      ? 10*p.poids + 6.25*p.taille - 5*p.age + 5
+      : 10*p.poids + 6.25*p.taille - 5*p.age - 161;
+
+    const activityMap = { sedentaire:1.2, leger:1.375, modere:1.55, actif:1.725, tresActif:1.9 };
+    const tdee = bmr * (activityMap[p.activite] || 1.2);
+
+    let calories;
+    if (p.objectif === 'perte') calories = tdee * 0.8;
+    else if (p.objectif === 'prise') calories = tdee * 1.15;
+    else calories = tdee;
+
+    const proteinPerKg = p.objectif === 'perte' ? 2.2 : (p.objectif === 'prise' ? 2.0 : 1.8);
+    const protein = proteinPerKg * p.poids;
+    const fat = (calories * 0.25) / 9;
+    const carbs = Math.max((calories - protein*4 - fat*9) / 4, 0);
+
+    const isMan = p.sexe === 'homme';
+
+    return {
+      calories: Math.round(calories),
+      protein: Math.round(protein),
+      carbs: Math.round(carbs),
+      fat: Math.round(fat),
+      fiber: isMan ? 38 : 25,
+      vitC: isMan ? 90 : 75,
+      iron: isMan ? 8 : 18,
+      calcium: 1000,
+      vitD: 15,
+      potassium: 3400,
+      magnesium: isMan ? 400 : 310,
+      sodiumMax: 2300,
+    };
+  }
+
+  /* ---------------------------------------------------------------------
+     STOCKAGE
+  --------------------------------------------------------------------- */
+  async function loadAll(){
+    try{
+      const profileRes = await window.storage.get('nutripanel:profile', false);
+      state.profile = profileRes ? JSON.parse(profileRes.value) : null;
+    }catch(e){ state.profile = null; }
+
+    try{
+      const listRes = await window.storage.list('nutripanel:log:', false);
+      const keys = (listRes && listRes.keys) || [];
+      for(const k of keys){
+        try{
+          const r = await window.storage.get(k, false);
+          if(r){
+            const dateStr = k.replace('nutripanel:log:', '');
+            state.logs[dateStr] = JSON.parse(r.value);
+          }
+        }catch(e){ /* ignore */ }
+      }
+    }catch(e){ /* no logs yet */ }
+
+    try{
+      const listRes = await window.storage.list('nutripanel:session:', false);
+      const keys = (listRes && listRes.keys) || [];
+      for(const k of keys){
+        try{
+          const r = await window.storage.get(k, false);
+          if(r){
+            const session = JSON.parse(r.value);
+            state.sessions[session.id] = session;
+          }
+        }catch(e){ /* ignore */ }
+      }
+    }catch(e){ /* no sessions yet */ }
+
+    try{
+      const listRes = await window.storage.list('nutripanel:activity:', false);
+      const keys = (listRes && listRes.keys) || [];
+      for(const k of keys){
+        try{
+          const r = await window.storage.get(k, false);
+          if(r){
+            const activity = JSON.parse(r.value);
+            state.activities[activity.id] = activity;
+          }
+        }catch(e){ /* ignore */ }
+      }
+    }catch(e){ /* no activities yet */ }
+
+    try{
+      const listRes = await window.storage.list('nutripanel:customfood:', false);
+      const keys = (listRes && listRes.keys) || [];
+      for(const k of keys){
+        try{
+          const r = await window.storage.get(k, false);
+          if(r){
+            const food = JSON.parse(r.value);
+            state.customFoods[food.id] = food;
+          }
+        }catch(e){ /* ignore */ }
+      }
+    }catch(e){ /* no custom foods yet */ }
+
+    try{
+      const themeRes = await window.storage.get('nutripanel:theme', false);
+      if(themeRes){ state.theme = { ...DEFAULT_THEME, ...JSON.parse(themeRes.value) }; }
+    }catch(e){ /* default theme */ }
+    applyThemeVars(state.theme);
+
+    state.loaded = true;
+    state.afterSplashScreen = state.profile ? 'today' : 'welcome';
+    state.screen = 'splash';
+    if(state.profile){
+      await maybeAutoGenerateWeekPlan();
+      await maybeShowWeeklyRecap();
+    }
+    render();
+  }
+
+  async function saveProfile(profile){
+    state.profile = profile;
+    try{
+      await window.storage.set('nutripanel:profile', JSON.stringify(profile), false);
+    }catch(e){ showToast('Erreur d\'enregistrement du profil'); }
+  }
+
+  async function saveDayLog(dateKey){
+    try{
+      await window.storage.set('nutripanel:log:'+dateKey, JSON.stringify(state.logs[dateKey] || []), false);
+    }catch(e){ showToast('Erreur d\'enregistrement du repas'); }
+  }
+
+  async function saveSession(session){
+    state.sessions[session.id] = session;
+    try{
+      await window.storage.set('nutripanel:session:'+session.id, JSON.stringify(session), false);
+    }catch(e){ showToast('Erreur d\'enregistrement de la séance'); }
+  }
+
+  async function deleteSessionStorage(id){
+    delete state.sessions[id];
+    try{
+      await window.storage.delete('nutripanel:session:'+id, false);
+    }catch(e){ /* ignore */ }
+  }
+
+  async function saveActivity(activity){
+    state.activities[activity.id] = activity;
+    try{
+      await window.storage.set('nutripanel:activity:'+activity.id, JSON.stringify(activity), false);
+    }catch(e){ showToast('Erreur d\'enregistrement de l\'activité'); }
+  }
+
+  async function deleteActivityStorage(id){
+    delete state.activities[id];
+    try{
+      await window.storage.delete('nutripanel:activity:'+id, false);
+    }catch(e){ /* ignore */ }
+  }
+
+  async function saveCustomFood(food){
+    state.customFoods[food.id] = food;
+    try{
+      await window.storage.set('nutripanel:customfood:'+food.id, JSON.stringify(food), false);
+    }catch(e){ showToast('Erreur d\'enregistrement de l\'aliment'); }
+  }
+
+  async function saveTheme(theme){
+    try{
+      await window.storage.set('nutripanel:theme', JSON.stringify(theme), false);
+    }catch(e){ showToast('Erreur d\'enregistrement des couleurs'); }
+  }
+
+  function showToast(msg){
+    state.toast = msg;
+    render();
+    setTimeout(()=>{ state.toast = null; render(); }, 2200);
+  }
+
+  /* ---------------------------------------------------------------------
+     TOTAUX DU JOUR
+  --------------------------------------------------------------------- */
+  function dayTotals(dateKey){
+    const entries = state.logs[dateKey] || [];
+    const totals = { kcal:0, protein:0, carbs:0, fat:0, fiber:0, vitC:0, iron:0, calcium:0, vitD:0, potassium:0, magnesium:0, sodium:0 };
+    for(const e of entries){
+      totals.kcal += e.kcal;
+      for(const k of NUTRIENT_KEYS) totals[k] += e[k];
+    }
+    return totals;
+  }
+
+  function round1(n){ return Math.round(n*10)/10; }
+
+  function computeDailyAdvice(totals, burnedKcal, t){
+    const now = new Date();
+    const hour = now.getHours() + now.getMinutes() / 60;
+    const dayStart = 7, dayEnd = 22;
+    const dayPct = Math.max(0, Math.min((hour - dayStart) / (dayEnd - dayStart), 1));
+
+    const adjustedGoal = t.calories + burnedKcal;
+    const remaining = adjustedGoal - totals.kcal;
+    const expected = adjustedGoal * dayPct;
+
+    let icon, headline, sub = '';
+
+    if(totals.kcal === 0 && burnedKcal === 0 && hour < 10){
+      icon = '🌅';
+      headline = "Bonne journée ! Pense à enregistrer ton petit-déjeuner pour bien démarrer le suivi.";
+    } else if(remaining < 0){
+      icon = '⚠️';
+      headline = `Objectif dépassé de ${Math.round(-remaining)} kcal aujourd'hui.`;
+      sub = "Privilégie un repas léger pour le reste de la journée.";
+    } else if(hour < 18 && expected > 100 && totals.kcal > expected * 1.25){
+      icon = '📊';
+      headline = "Tu avances vite sur tes calories par rapport à l'heure qu'il est.";
+      sub = "Essaie de garder tes prochains repas plus légers pour finir la journée dans les clous.";
+    } else if(hour > 14 && expected > 200 && totals.kcal < expected * 0.5){
+      icon = '🍽️';
+      headline = "Tu es en dessous du rythme aujourd'hui.";
+      sub = "N'oublie pas de manger suffisamment d'ici ce soir pour couvrir tes besoins.";
+    } else if(burnedKcal > 0 && remaining > t.calories * 0.3){
+      icon = '🔥';
+      headline = `Belle dépense aujourd'hui — il te reste environ ${Math.round(remaining)} kcal à consommer.`;
+      sub = "De quoi bien manger sans culpabiliser.";
+    } else {
+      icon = '👍';
+      headline = remaining > 20
+        ? `Tu es sur la bonne voie — il te reste environ ${Math.round(remaining)} kcal pour aujourd'hui.`
+        : "Tu es exactement dans ton objectif aujourd'hui.";
+    }
+
+    if(!sub && t.protein && dayPct > 0.3){
+      const proteinExpected = t.protein * dayPct;
+      if(totals.protein < proteinExpected * 0.6){
+        sub = "Pense à ajouter une source de protéines à ton prochain repas (poulet, œufs, yaourt, whey…).";
+      }
+    }
+
+    return { icon, headline, sub, remaining, adjustedGoal };
+  }
+
+  /* ---------------------------------------------------------------------
+     RÉCAP HEBDOMADAIRE
+  --------------------------------------------------------------------- */
+  function mondayForDate(d){
+    const day = d.getDay(); // 0=dim, 1=lun...
+    const diffToMonday = day === 0 ? -6 : 1 - day;
+    const monday = new Date(d);
+    monday.setDate(d.getDate() + diffToMonday);
+    return monday;
+  }
+
+  function dateKeyFromDate(d){
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+
+  function weekDatesFromMonday(monday){
+    const dates = [];
+    for(let i=0;i<7;i++){
+      const d = new Date(monday);
+      d.setDate(monday.getDate()+i);
+      dates.push(dateKeyFromDate(d));
+    }
+    return dates;
+  }
+
+  function getPreviousWeekDates(){
+    const thisMonday = mondayForDate(new Date());
+    const prevMonday = new Date(thisMonday);
+    prevMonday.setDate(thisMonday.getDate() - 7);
+    return weekDatesFromMonday(prevMonday);
+  }
+
+  function weekRangeLabel(dates){
+    const start = new Date(dates[0] + 'T00:00:00');
+    const end = new Date(dates[6] + 'T00:00:00');
+    const opts = { day:'numeric', month:'short' };
+    return `${start.toLocaleDateString('fr-FR', opts)} – ${end.toLocaleDateString('fr-FR', opts)}`;
+  }
+
+  function weekNutritionSummary(dates){
+    const sum = { kcal:0, protein:0, carbs:0, fat:0, fiber:0, vitC:0, iron:0, calcium:0, vitD:0, potassium:0, magnesium:0, sodium:0 };
+    let daysLogged = 0;
+    dates.forEach(dk => {
+      const entries = state.logs[dk] || [];
+      if(entries.length > 0) daysLogged++;
+      const dayT = dayTotals(dk);
+      for(const k in sum) sum[k] += dayT[k];
+    });
+    const divisor = daysLogged || 1;
+    const avg = {};
+    for(const k in sum) avg[k] = sum[k] / divisor;
+    return { sum, avg, daysLogged };
+  }
+
+  function weekTrainingSummary(dates){
+    const sessions = dates.flatMap(dk => sessionsForDate(dk));
+    const finished = sessions.filter(s => s.status === 'terminee');
+    const totalSets = finished.reduce((acc, s) => acc + sessionStats(s).totalSets, 0);
+    const groupsSet = new Set();
+    finished.forEach(s => sessionStats(s).groups.forEach(g => groupsSet.add(g)));
+    return { totalSessions: sessions.length, finishedSessions: finished.length, totalSets, groups: [...groupsSet] };
+  }
+
+  async function maybeShowWeeklyRecap(){
+    if(new Date().getDay() !== 1) return; // uniquement le lundi
+    const dates = getPreviousWeekDates();
+    const weekStart = dates[0];
+    let lastShown = null;
+    try{
+      const r = await window.storage.get('nutripanel:lastRecapWeek', false);
+      lastShown = r ? r.value : null;
+    }catch(e){ /* ignore */ }
+    if(lastShown === weekStart) return; // déjà vu cette semaine
+    state.weeklyRecapOpen = true;
+    state.weeklyRecapWeekStart = weekStart;
+    state.weeklyRecapDates = dates;
+    state.weeklyRecapStep = 'recap';
+  }
+
+  async function closeWeeklyRecap(){
+    const weekStart = state.weeklyRecapWeekStart;
+    state.weeklyRecapOpen = false;
+    state.weeklyRecapStep = 'recap';
+    if(weekStart){
+      try{ await window.storage.set('nutripanel:lastRecapWeek', weekStart, false); }catch(e){ /* ignore */ }
+    }
+    render();
+  }
+
+  /* ---------------------------------------------------------------------
+     RENDU: RINGS SVG
+  --------------------------------------------------------------------- */
+  function ringSvg(size, stroke, pct, color, trackColor){
+    const r = (size - stroke) / 2;
+    const c = 2 * Math.PI * r;
+    const clamped = Math.max(0, Math.min(pct, 1));
+    const offset = c * (1 - clamped);
+    return `
+      <svg viewBox="0 0 ${size} ${size}">
+        <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${trackColor}" stroke-width="${stroke}"/>
+        <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}"
+          stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"/>
+      </svg>`;
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: ACCUEIL / BIENVENUE
+  --------------------------------------------------------------------- */
+  function iconLeaf(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20c8 0 14-6 14-14V4h-2C8 4 4 10 4 18v2Z"/><path d="M4 20 14 10"/></svg>`; }
+
+  function renderSplash(){
+    return `
+      <div class="splash-wrap" data-action="enter-app">
+        <div class="splash-logo">${iconLeaf()}</div>
+        <h1 class="splash-title">Nutri<b>Panel</b></h1>
+        <p class="splash-tag">Ton suivi nutrition & entraînement</p>
+        <button class="btn splash-btn" data-action="enter-app">Appuyer pour continuer</button>
+        <div class="splash-hint">Touche l'écran pour ouvrir l'application</div>
+      </div>
+    `;
+  }
+
+  function renderWelcome(){
+    return `
+      <div class="welcome-wrap">
+        <div class="welcome-badge">${iconLeaf()}</div>
+        <h1>Bienvenue sur <b>NutriPanel</b></h1>
+        <p class="lead">Ton suivi nutritionnel personnalisé : des objectifs calculés selon ton profil et ton activité, et un journal simple pour tout suivre au quotidien — repas comme boissons.</p>
+
+        <div class="welcome-features">
+          <div class="welcome-feature">
+            <div class="wf-icon" style="background:var(--brand-soft); color:var(--brand-dark);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <div class="wf-text"><b>Objectifs sur-mesure</b><span>Calories et macros calculés selon ton profil et ton niveau d'activité.</span></div>
+          </div>
+          <div class="welcome-feature">
+            <div class="wf-icon" style="background:var(--carbs-soft); color:#8a5a10;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+            <div class="wf-text"><b>Repas & boissons</b><span>Café, whey, boissons énergisantes… ajoute tout ce que tu consommes en quelques secondes.</span></div>
+          </div>
+          <div class="welcome-feature">
+            <div class="wf-icon" style="background:var(--fat-soft); color:var(--fat);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M7 19V9M12 19V5M17 19v7"/></svg>
+            </div>
+            <div class="wf-text"><b>Jauges au quotidien</b><span>Macros et micronutriments se remplissent au fil de tes repas, jour après jour.</span></div>
+          </div>
+        </div>
+
+        <button class="btn" data-action="start-onboarding">Commencer</button>
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: AUJOURD'HUI
+  --------------------------------------------------------------------- */
+  function renderToday(){
+    const t = state.profile.targets;
+    const dk = todayKey();
+    const totals = dayTotals(dk);
+    const entries = state.logs[dk] || [];
+    const burnedKcal = Object.values(state.activities).filter(a => a.date === dk).reduce((s,a) => s + a.kcal, 0);
+    const advice = computeDailyAdvice(totals, burnedKcal, t);
+
+    const kcalPct = totals.kcal / t.calories;
+    const proteinPct = totals.protein / t.protein;
+    const carbsPct = totals.carbs / t.carbs;
+    const fatPct = totals.fat / t.fat;
+
+    const microDefs = [
+      {key:'fiber', label:'Fibres', unit:'g', target:t.fiber, color:'var(--fiber)'},
+      {key:'vitC', label:'Vit. C', unit:'mg', target:t.vitC, color:'var(--micro-2)'},
+      {key:'iron', label:'Fer', unit:'mg', target:t.iron, color:'var(--micro-1)'},
+      {key:'calcium', label:'Calcium', unit:'mg', target:t.calcium, color:'var(--micro-3)'},
+      {key:'vitD', label:'Vit. D', unit:'µg', target:t.vitD, color:'var(--micro-4)'},
+      {key:'potassium', label:'Potassium', unit:'mg', target:t.potassium, color:'var(--micro-5)'},
+      {key:'magnesium', label:'Magnésium', unit:'mg', target:t.magnesium, color:'var(--micro-6)'},
+      {key:'sodium', label:'Sodium', unit:'mg', target:t.sodiumMax, color:'var(--danger)', isLimit:true},
+    ];
+
+    return `
+      <div class="screen">
+        <h1 class="page-title">Aujourd'hui</h1>
+
+        <div class="card">
+          <div class="card-title">Conseil du jour</div>
+          <div class="advice-headline">${advice.icon} ${advice.headline}</div>
+          ${advice.sub ? `<div class="advice-sub">${advice.sub}</div>` : ''}
+          ${burnedKcal > 0 ? `
+            <div class="advice-burn-row">
+              <span>🔥 ${Math.round(burnedKcal)} kcal brûlées</span>
+              <span>${advice.remaining >= 0 ? Math.round(advice.remaining) + ' kcal restants' : 'dépassé de ' + Math.round(-advice.remaining) + ' kcal'}</span>
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="card">
+          <div class="card-title">Calories</div>
+          <div class="ring-cluster">
+            <div class="ring-main">
+              ${ringSvg(188, 14, kcalPct, 'var(--brand)', 'var(--surface-soft)')}
+              <div class="ring-center">
+                <div class="kcal-num">${Math.round(totals.kcal)}</div>
+                <div class="kcal-label">kcal consommées</div>
+                <div class="kcal-goal">objectif ${t.calories} kcal</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="macro-rings">
+            <div class="macro-ring-item">
+              ${proteinPct >= 1 ? '<div class="check-dot">✓</div>' : ''}
+              ${ringSvg(54, 7, proteinPct, 'var(--protein)', 'var(--surface)')}
+              <div class="m-label">Prot.</div>
+              <div class="m-val">${Math.round(totals.protein)}<span class="of">/${t.protein}g</span></div>
+            </div>
+            <div class="macro-ring-item">
+              ${carbsPct >= 1 ? '<div class="check-dot">✓</div>' : ''}
+              ${ringSvg(54, 7, carbsPct, 'var(--carbs)', 'var(--surface)')}
+              <div class="m-label">Gluc.</div>
+              <div class="m-val">${Math.round(totals.carbs)}<span class="of">/${t.carbs}g</span></div>
+            </div>
+            <div class="macro-ring-item">
+              ${fatPct >= 1 ? '<div class="check-dot">✓</div>' : ''}
+              ${ringSvg(54, 7, fatPct, 'var(--fat)', 'var(--surface)')}
+              <div class="m-label">Lip.</div>
+              <div class="m-val">${Math.round(totals.fat)}<span class="of">/${t.fat}g</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Micronutriments</div>
+          ${microDefs.map(m => {
+            const val = totals[m.key];
+            const pct = Math.min(val / m.target, 1);
+            const over = m.isLimit && val > m.target;
+            return `
+              <div class="micro-row">
+                <div class="micro-name">${m.label}</div>
+                <div class="micro-track">
+                  <div class="micro-fill" style="width:${pct*100}%; background:${over ? 'var(--danger)' : m.color};"></div>
+                </div>
+                <div class="micro-val ${over ? 'over' : ''}">${round1(val)}/${m.target}${m.unit}</div>
+              </div>`;
+          }).join('')}
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Repas & boissons du jour</span>
+            <span style="font-family:var(--font-mono); color:var(--ink-faint); text-transform:none; font-size:12px; font-weight:400;">${entries.length} entrée${entries.length>1?'s':''}</span>
+          </div>
+          ${entries.length === 0 ? `
+            <div class="empty-state">Rien d'enregistré pour l'instant.<br>Ajoute ton premier aliment ou boisson depuis l'onglet "Ajouter".</div>
+          ` : entries.slice().reverse().map(e => `
+            <div class="meal-entry">
+              <div class="meal-entry-info">
+                <div class="meal-entry-name">${e.name}</div>
+                <div class="meal-entry-meta">${e.mealLabel} · ${e.grams}${e.unit || 'g'}${e.manual ? ' · perso' : ''}</div>
+              </div>
+              <div class="meal-entry-kcal">${Math.round(e.kcal)} kcal</div>
+              <button class="del-btn" data-action="delete-entry" data-id="${e.id}" aria-label="Supprimer">✕</button>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: AJOUTER UN REPAS / BOISSON
+  --------------------------------------------------------------------- */
+  function renderAdd(){
+    const q = state.searchQuery.trim().toLowerCase();
+    const allFoods = FOODS.concat(Object.values(state.customFoods));
+    let filtered = allFoods;
+    if(state.foodCategory !== 'tous') filtered = filtered.filter(f => f.category === state.foodCategory);
+    if(q) filtered = filtered.filter(f => f.name.toLowerCase().includes(q));
+
+    return `
+      <div class="screen">
+        <h1 class="page-title">Ajouter</h1>
+
+        <div class="meal-type-tabs">
+          ${MEAL_TYPES.map(mt => `
+            <button class="meal-type-tab ${state.mealType === mt.id ? 'active' : ''}" data-action="set-meal-type" data-meal="${mt.id}">${mt.label}</button>
+          `).join('')}
+        </div>
+
+        <div class="cat-tabs">
+          <button class="cat-tab ${state.foodCategory==='tous'?'active':''}" data-action="set-category" data-cat="tous">Tous</button>
+          <button class="cat-tab ${state.foodCategory==='aliment'?'active':''}" data-action="set-category" data-cat="aliment">Aliments</button>
+          <button class="cat-tab ${state.foodCategory==='boisson'?'active':''}" data-action="set-category" data-cat="boisson">Boissons</button>
+        </div>
+
+        <div class="search-wrap">
+          <input type="text" id="food-search" placeholder="Rechercher un aliment ou une boisson…" value="${state.searchQuery.replace(/"/g,'&quot;')}" data-action="search-input">
+        </div>
+
+        <div class="food-list">
+          ${filtered.length === 0 ? `<div class="empty-state">Aucun résultat.</div>` : filtered.map(f => `
+            <button class="food-item" data-action="pick-food" data-food="${f.id}">
+              <span class="food-item-name">${f.name}</span>
+              <span class="food-item-kcal">${f.kcal} kcal/100${f.unit}${f.custom ? ' · perso' : ''}</span>
+            </button>
+          `).join('')}
+        </div>
+
+        <button class="add-session-btn" data-action="open-custom-food" style="margin-top:10px;">+ Ajouter un aliment personnalisé</button>
+      </div>
+
+      ${state.portionFood ? renderPortionSheet() : ''}
+      ${state.customFoodOpen ? renderCustomFoodSheet() : ''}
+    `;
+  }
+
+  function renderCustomFoodSheet(){
+    const cat = state.customFoodCategory;
+    return `
+      <div class="portion-panel custom-food-panel">
+        <div class="portion-sheet">
+          <h3>Ajouter un aliment personnalisé</h3>
+          <div class="food-per100">Renseigne les valeurs pour 100 g / 100 ml.</div>
+
+          <div class="field">
+            <label>Nom</label>
+            <input type="text" id="cf-name" placeholder="Ex : Granola maison">
+          </div>
+
+          <div class="field">
+            <label>Catégorie</label>
+            <div class="segmented" style="width:100%;">
+              <button class="seg ${cat==='aliment'?'active':''}" data-action="set-custom-food-cat" data-cat="aliment" style="flex:1;">Aliment (g)</button>
+              <button class="seg ${cat==='boisson'?'active':''}" data-action="set-custom-food-cat" data-cat="boisson" style="flex:1;">Boisson (ml)</button>
+            </div>
+          </div>
+
+          <div class="manual-grid" style="margin-bottom:14px;">
+            <div class="field"><label>Calories (kcal)</label><input type="number" min="0" id="cf-kcal" placeholder="0"></div>
+            <div class="field"><label>Protéines (g)</label><input type="number" min="0" step="0.1" id="cf-protein" placeholder="0"></div>
+            <div class="field"><label>Glucides (g)</label><input type="number" min="0" step="0.1" id="cf-carbs" placeholder="0"></div>
+            <div class="field"><label>Lipides (g)</label><input type="number" min="0" step="0.1" id="cf-fat" placeholder="0"></div>
+            <div class="field"><label>Fibres (g)</label><input type="number" min="0" step="0.1" id="cf-fiber" placeholder="0"></div>
+          </div>
+
+          <div class="card-title">Micronutriments (optionnel)</div>
+          <div class="manual-grid" style="margin-bottom:6px;">
+            <div class="field"><label>Vitamine C (mg)</label><input type="number" min="0" step="0.1" id="cf-vitc" placeholder="0"></div>
+            <div class="field"><label>Fer (mg)</label><input type="number" min="0" step="0.1" id="cf-iron" placeholder="0"></div>
+            <div class="field"><label>Calcium (mg)</label><input type="number" min="0" step="0.1" id="cf-calcium" placeholder="0"></div>
+            <div class="field"><label>Vitamine D (µg)</label><input type="number" min="0" step="0.1" id="cf-vitd" placeholder="0"></div>
+            <div class="field"><label>Potassium (mg)</label><input type="number" min="0" step="0.1" id="cf-potassium" placeholder="0"></div>
+            <div class="field"><label>Magnésium (mg)</label><input type="number" min="0" step="0.1" id="cf-magnesium" placeholder="0"></div>
+            <div class="field"><label>Sodium (mg)</label><input type="number" min="0" step="0.1" id="cf-sodium" placeholder="0"></div>
+          </div>
+
+          <button class="btn" data-action="save-custom-food" style="margin-top:10px; margin-bottom:8px;">Ajouter à mes aliments</button>
+          <button class="btn ghost" data-action="close-custom-food">Annuler</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function quickPortionsFor(food){
+    return food.unit === 'ml' ? [100, 150, 250, 330] : [50, 100, 150, 200];
+  }
+
+  function renderPortionSheet(){
+    const f = state.portionFood;
+    const grams = state.portionGrams;
+    const factor = grams / 100;
+    const quicks = quickPortionsFor(f);
+    const unit = f.unit || 'g';
+    const manual = state.portionManual;
+    const mv = state.manualValues;
+
+    return `
+      <div class="portion-panel">
+        <div class="portion-sheet">
+          <h3>${f.name}</h3>
+          <div class="food-per100">${f.kcal} kcal · ${f.protein}g P · ${f.carbs}g G · ${f.fat}g L (pour 100${unit})</div>
+
+          <div class="ask-row">
+            <div>
+              <div class="ask-text">Modifier les apports toi-même ?</div>
+              <div class="ask-sub">Utile si l'emballage indique d'autres valeurs.</div>
+            </div>
+            <div class="segmented">
+              <button class="seg ${!manual ? 'active' : ''}" data-action="set-manual" data-manual="0">Non</button>
+              <button class="seg ${manual ? 'active' : ''}" data-action="set-manual" data-manual="1">Oui</button>
+            </div>
+          </div>
+
+          <div class="quick-portions">
+            ${quicks.map(g => `
+              <button class="quick-portion-btn ${grams === g ? 'active' : ''}" data-action="set-portion" data-grams="${g}">${g}${unit}</button>
+            `).join('')}
+          </div>
+
+          <div class="field" style="margin-bottom:14px;">
+            <label>Quantité (${unit})</label>
+            <input type="number" min="1" id="portion-input" value="${grams}" data-action="custom-portion-input">
+          </div>
+
+          ${manual ? `
+            <div class="manual-grid">
+              <div class="field">
+                <label>Calories (kcal)</label>
+                <input type="number" min="0" id="manual-kcal" value="${mv.kcal}">
+              </div>
+              <div class="field">
+                <label>Protéines (g)</label>
+                <input type="number" min="0" step="0.1" id="manual-protein" value="${mv.protein}">
+              </div>
+              <div class="field">
+                <label>Glucides (g)</label>
+                <input type="number" min="0" step="0.1" id="manual-carbs" value="${mv.carbs}">
+              </div>
+              <div class="field">
+                <label>Lipides (g)</label>
+                <input type="number" min="0" step="0.1" id="manual-fat" value="${mv.fat}">
+              </div>
+            </div>
+            <div class="manual-note">Les autres micronutriments restent calculés à partir de la quantité indiquée.</div>
+          ` : `
+            <div class="portion-preview">
+              <span>Calories: <b>${Math.round(f.kcal*factor)}</b></span>
+              <span>Prot: <b>${round1(f.protein*factor)}g</b></span>
+              <span>Gluc: <b>${round1(f.carbs*factor)}g</b></span>
+              <span>Lip: <b>${round1(f.fat*factor)}g</b></span>
+            </div>
+          `}
+
+          <button class="btn" data-action="confirm-add-food" style="margin-top:10px; margin-bottom:8px;">Ajouter au journal</button>
+          <button class="btn ghost" data-action="cancel-portion">Annuler</button>
+        </div>
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: PROFIL & OBJECTIFS
+  --------------------------------------------------------------------- */
+  function renderProfile(){
+    const p = state.profile || {};
+    const targets = state.profile ? state.profile.targets : null;
+
+    return `
+      <div class="screen">
+        <h1 class="page-title">Profil & objectifs</h1>
+
+        <div class="card">
+          <div class="card-title">Tes informations</div>
+          <div class="field-row">
+            <div class="field">
+              <label>Âge</label>
+              <input type="number" id="f-age" value="${p.age || ''}" placeholder="30">
+            </div>
+            <div class="field">
+              <label>Sexe</label>
+              <select id="f-sexe">
+                <option value="homme" ${p.sexe==='homme'?'selected':''}>Homme</option>
+                <option value="femme" ${p.sexe==='femme'?'selected':''}>Femme</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Poids (kg)</label>
+              <input type="number" id="f-poids" value="${p.poids || ''}" placeholder="75">
+            </div>
+            <div class="field">
+              <label>Taille (cm)</label>
+              <input type="number" id="f-taille" value="${p.taille || ''}" placeholder="178">
+            </div>
+          </div>
+          <div class="field">
+            <label>Niveau d'activité physique</label>
+            <select id="f-activite">
+              <option value="sedentaire" ${p.activite==='sedentaire'?'selected':''}>Sédentaire (peu ou pas de sport)</option>
+              <option value="leger" ${p.activite==='leger'?'selected':''}>Léger (1-3x/semaine)</option>
+              <option value="modere" ${p.activite==='modere'?'selected':''}>Modéré (3-5x/semaine)</option>
+              <option value="actif" ${p.activite==='actif'?'selected':''}>Actif (6-7x/semaine)</option>
+              <option value="tresActif" ${p.activite==='tresActif'?'selected':''}>Très actif (sport intense quotidien / physique)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Objectif</label>
+            <select id="f-objectif">
+              <option value="perte" ${p.objectif==='perte'?'selected':''}>Perte de poids</option>
+              <option value="maintien" ${p.objectif==='maintien'?'selected':''}>Maintien</option>
+              <option value="prise" ${p.objectif==='prise'?'selected':''}>Prise de masse</option>
+            </select>
+          </div>
+          <button class="btn" data-action="save-profile">Calculer mes objectifs</button>
+        </div>
+
+        ${targets ? `
+          <div class="card">
+            <div class="card-title">
+              <span>Tes objectifs quotidiens</span>
+              ${!state.editingGoals ? `<button class="del-btn" data-action="edit-goals" style="color:var(--brand-dark); font-size:12.5px; font-weight:600;">Modifier</button>` : ''}
+            </div>
+            ${state.editingGoals ? `
+              <div class="goal-grid">
+                ${GOAL_FIELDS.map(f => `
+                  <div class="field">
+                    <label>${f.label} (${f.unit})</label>
+                    <input type="number" min="0" step="0.1" id="goal-${f.key}" value="${targets[f.key]}">
+                  </div>
+                `).join('')}
+              </div>
+              <div class="field-row">
+                <button class="btn secondary" data-action="cancel-edit-goals" style="flex:1;">Annuler</button>
+                <button class="btn" data-action="save-goals" style="flex:1;">Enregistrer</button>
+              </div>
+            ` : `
+              <div class="goal-grid">
+                <div class="goal-chip"><div class="g-label">Calories</div><div class="g-val">${targets.calories} kcal</div></div>
+                <div class="goal-chip"><div class="g-label">Protéines</div><div class="g-val">${targets.protein} g</div></div>
+                <div class="goal-chip"><div class="g-label">Glucides</div><div class="g-val">${targets.carbs} g</div></div>
+                <div class="goal-chip"><div class="g-label">Lipides</div><div class="g-val">${targets.fat} g</div></div>
+                <div class="goal-chip"><div class="g-label">Fibres</div><div class="g-val">${targets.fiber} g</div></div>
+                <div class="goal-chip"><div class="g-label">Vitamine C</div><div class="g-val">${targets.vitC} mg</div></div>
+                <div class="goal-chip"><div class="g-label">Fer</div><div class="g-val">${targets.iron} mg</div></div>
+                <div class="goal-chip"><div class="g-label">Calcium</div><div class="g-val">${targets.calcium} mg</div></div>
+                <div class="goal-chip"><div class="g-label">Vitamine D</div><div class="g-val">${targets.vitD} µg</div></div>
+                <div class="goal-chip"><div class="g-label">Potassium</div><div class="g-val">${targets.potassium} mg</div></div>
+                <div class="goal-chip"><div class="g-label">Magnésium</div><div class="g-val">${targets.magnesium} mg</div></div>
+                <div class="goal-chip"><div class="g-label">Sodium max</div><div class="g-val">${targets.sodiumMax} mg</div></div>
+              </div>
+            `}
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     ENTRAÎNEMENT — UTILITAIRES SESSIONS
+  --------------------------------------------------------------------- */
+  function getWeekDates(){
+    const now = new Date();
+    const day = now.getDay(); // 0=dim, 1=lun...
+    const diffToMonday = day === 0 ? -6 : 1 - day;
+    const monday = new Date(now);
+    monday.setDate(now.getDate() + diffToMonday);
+    const dates = [];
+    for(let i=0;i<7;i++){
+      const d = new Date(monday);
+      d.setDate(monday.getDate()+i);
+      dates.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'));
+    }
+    return dates;
+  }
+
+  function sessionsForDate(dateStr){
+    return Object.values(state.sessions).filter(s => s.date === dateStr).sort((a,b) => a.id < b.id ? -1 : 1);
+  }
+
+  function defaultSessionName(dateStr){
+    const d = new Date(dateStr + 'T00:00:00');
+    const label = d.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
+    return 'Séance du ' + label;
+  }
+
+  function sessionStats(session){
+    const totalSets = session.exercises.reduce((s,e) => s + (e.sets || 0), 0);
+    const groups = [...new Set(session.exercises.map(e => e.group))];
+    return { totalSets, groups };
+  }
+
+  function formatExerciseStat(e){
+    return `${e.sets} séries × ${e.reps} reps${e.weight ? ' · ' + e.weight + ' kg' : ''}`;
+  }
+
+  function computeSessionAnalysis(session){
+    const earlierSessions = Object.values(state.sessions)
+      .filter(s => s.id !== session.id && s.status === 'terminee' &&
+        (s.date < session.date || (s.date === session.date && s.id < session.id)))
+      .sort((a,b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : (a.id < b.id ? 1 : -1)));
+
+    let progressCount = 0, plateauCount = 0, newCount = 0;
+
+    const items = session.exercises.map(ex => {
+      const history = [];
+      for(const s of earlierSessions){
+        const match = s.exercises.find(e => e.exercise === ex.exercise);
+        if(match) history.push(match);
+        if(history.length >= 5) break;
+      }
+
+      if(history.length === 0){
+        newCount++;
+        return {
+          group: ex.group, exercise: ex.exercise,
+          currentLabel: formatExerciseStat(ex), prevLabel: '',
+          icon: '⭐', message: 'Nouvel exercice — bon point de départ pour suivre ta progression.',
+        };
+      }
+
+      const prev = history[0];
+      let streak = 0;
+      for(const h of history){
+        if(h.weight === ex.weight && h.reps === ex.reps) streak++;
+        else break;
+      }
+
+      const weightUp = ex.weight != null && prev.weight != null && ex.weight > prev.weight;
+      const weightDown = ex.weight != null && prev.weight != null && ex.weight < prev.weight;
+      const repsUp = ex.reps > prev.reps;
+      const repsDown = ex.reps < prev.reps;
+      const sameWeight = ex.weight === prev.weight;
+
+      let icon, message;
+      if(weightUp){
+        progressCount++;
+        icon = '💪';
+        message = `Charge en hausse (+${round1(ex.weight - prev.weight)} kg) — bonne progression, continue comme ça.`;
+      } else if(sameWeight && repsUp){
+        progressCount++;
+        icon = '💪';
+        message = 'Répétitions en hausse — bonne progression.';
+      } else if(sameWeight && !repsDown && streak >= 3){
+        plateauCount++;
+        icon = '🔄';
+        message = `Même charge et répétitions depuis ${streak + 1} séances — essaie d'augmenter le poids, les répétitions, ou varie l'exercice.`;
+      } else if(sameWeight && !repsDown){
+        icon = '➡️';
+        message = 'Charge stable par rapport à la dernière fois — encore un peu de marge pour progresser.';
+      } else if(weightDown || repsDown){
+        icon = '📉';
+        message = 'Un peu moins que la dernière fois — normal après une grosse séance, ou écoute ton corps.';
+      } else {
+        icon = '➡️';
+        message = 'Charge stable par rapport à la dernière fois.';
+      }
+
+      return {
+        group: ex.group, exercise: ex.exercise,
+        currentLabel: formatExerciseStat(ex), prevLabel: formatExerciseStat(prev),
+        icon, message,
+      };
+    });
+
+    return { sessionName: session.name, items, progressCount, plateauCount, newCount };
+  }
+
+  /* ---------------------------------------------------------------------
+     ENTRAÎNEMENT — SOUS-COMPOSANTS RÉUTILISÉS
+  --------------------------------------------------------------------- */
+  function exerciseFormHtml(prefix){
+    return `
+      <div class="field">
+        <label>Groupe musculaire</label>
+        <select id="${prefix}-group">
+          ${MUSCLE_GROUPS.map(g => `<option value="${g}" ${state.trainingLastGroup === g ? 'selected' : ''}>${g}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Exercice</label>
+        <select id="${prefix}-exercise-select" data-action="exercise-select-change" data-prefix="${prefix}">
+          <option value="">Choisir un exercice…</option>
+          ${MUSCLE_GROUPS.map(g => `
+            <optgroup label="${g}">
+              ${(EXERCISE_DB[g] || []).map(ex => `<option value="${ex}">${ex}</option>`).join('')}
+            </optgroup>
+          `).join('')}
+          <option value="__custom__">+ Autre (exercice personnalisé)</option>
+        </select>
+      </div>
+      <div class="field" id="${prefix}-exercise-custom-wrap" style="display:none;">
+        <label>Nom de l'exercice personnalisé</label>
+        <input type="text" id="${prefix}-exercise-custom" placeholder="Nom de ton exercice">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Séries</label>
+          <input type="number" min="1" id="${prefix}-sets" placeholder="4">
+        </div>
+        <div class="field">
+          <label>Répétitions</label>
+          <input type="number" min="1" id="${prefix}-reps" placeholder="10">
+        </div>
+        <div class="field">
+          <label>Poids (kg)</label>
+          <input type="number" min="0" step="0.5" id="${prefix}-weight" placeholder="60">
+        </div>
+      </div>
+      <div class="field">
+        <label>Ressenti (optionnel)</label>
+        <select id="${prefix}-feeling">
+          ${FEELINGS.map(f => `<option value="${f.id}">${f.label}</option>`).join('')}
+        </select>
+      </div>
+    `;
+  }
+
+  function exerciseRowHtml(e, sessionId){
+    return `
+      <div class="exo-entry">
+        <div class="exo-entry-info">
+          <div class="exo-group-tag">${e.group}</div>
+          <div class="exo-name">${e.exercise}</div>
+          <div class="exo-meta">${e.sets} séries × ${e.reps} reps${e.weight ? ' · ' + e.weight + ' kg' : ''}</div>
+          ${e.feelingLabel ? `<div class="exo-feeling">${e.feelingLabel}</div>` : ''}
+        </div>
+        <button class="del-btn" data-action="delete-exercise-from-session" data-session="${sessionId}" data-id="${e.id}" aria-label="Supprimer">✕</button>
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: ENTRAÎNEMENT (MUSCULATION)
+  --------------------------------------------------------------------- */
+  function renderTraining(){
+    const sub = state.trainingSubTab;
+    return `
+      <div class="screen">
+        <h1 class="page-title">Sport</h1>
+        <div class="cat-tabs">
+          <button class="cat-tab ${sub==='current'?'active':''}" data-action="set-training-subtab" data-tab="current">Séance en cours</button>
+          <button class="cat-tab ${sub==='week'?'active':''}" data-action="set-training-subtab" data-tab="week">Semaine</button>
+          <button class="cat-tab ${sub==='activities'?'active':''}" data-action="set-training-subtab" data-tab="activities">Activités</button>
+        </div>
+        ${sub === 'current' ? renderCurrentSession() : sub === 'week' ? renderWeekView() : renderActivities()}
+      </div>
+      ${state.openSessionId ? renderSessionDetail() : ''}
+      ${state.aiPlanOpen ? renderAiPlanSheet() : ''}
+      ${state.sessionAnalysisOpen ? renderSessionAnalysisSheet() : ''}
+    `;
+  }
+
+  function renderCurrentSession(){
+    const dk = todayKey();
+    const todaySessions = sessionsForDate(dk);
+    const active = todaySessions.find(s => s.status !== 'terminee');
+    const finishedToday = todaySessions.filter(s => s.status === 'terminee');
+
+    if(!active){
+      return `
+        ${finishedToday.map(s => renderFinishedTodayCard(s)).join('')}
+        <div class="card">
+          <div class="empty-state">Aucune séance en cours aujourd'hui.<br>Lance-toi 💪</div>
+          <button class="btn" data-action="start-session" style="margin-top:6px;">Démarrer une séance</button>
+        </div>
+      `;
+    }
+
+    const { totalSets, groups } = sessionStats(active);
+
+    return `
+      <div class="stat-row">
+        <div class="stat-box"><div class="s-num">${active.exercises.length}</div><div class="s-label">Exercices</div></div>
+        <div class="stat-box"><div class="s-num">${totalSets}</div><div class="s-label">Séries</div></div>
+        <div class="stat-box"><div class="s-num">${groups.length}</div><div class="s-label">Groupes</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>${active.name}</span>
+          <span class="badge warn">Prévue</span>
+        </div>
+        ${exerciseFormHtml('t')}
+        <button class="btn" data-action="add-exercise-to-session" data-session="${active.id}" data-prefix="t">Ajouter l'exercice</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>Exercices de la séance</span>
+          <span style="font-family:var(--font-mono); color:var(--ink-faint); text-transform:none; font-size:12px; font-weight:400;">${active.exercises.length}</span>
+        </div>
+        ${groups.length > 0 ? `<div style="margin-bottom:12px;">${groups.map(g => `<span class="group-chip">${g}</span>`).join('')}</div>` : ''}
+        ${active.exercises.length === 0 ? `
+          <div class="empty-state">Aucun exercice pour l'instant.</div>
+        ` : active.exercises.slice().reverse().map(e => exerciseRowHtml(e, active.id)).join('')}
+      </div>
+
+      <button class="btn secondary" data-action="finish-session" data-id="${active.id}" style="margin-bottom:14px;">Terminer la séance ✓</button>
+    `;
+  }
+
+  function renderFinishedTodayCard(s){
+    const { totalSets, groups } = sessionStats(s);
+    return `
+      <div class="card" data-action="open-session" data-id="${s.id}">
+        <div class="card-title">
+          <span>${s.name}</span>
+          <span class="badge success">Terminée ✓</span>
+        </div>
+        <div class="exo-meta">${s.exercises.length} exercices · ${totalSets} séries${groups.length ? ' · ' + groups.join(', ') : ''}</div>
+      </div>
+    `;
+  }
+
+  function activityFormHtml(prefix){
+    return `
+      <div class="field">
+        <label>Type d'activité</label>
+        <select id="${prefix}-type">
+          ${ACTIVITY_TYPES.map(t => `<option value="${t.id}">${t.label}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Durée (min)</label>
+          <input type="number" min="1" id="${prefix}-duration" placeholder="30">
+        </div>
+        <div class="field">
+          <label>Calories brûlées (kcal)</label>
+          <input type="number" min="0" id="${prefix}-kcal" placeholder="Auto">
+        </div>
+      </div>
+      <div class="manual-note">Laisse "Calories brûlées" vide pour un calcul automatique selon ton poids, ou renseigne ta propre valeur (ex : montre connectée).</div>
+    `;
+  }
+
+  function renderActivities(){
+    const dk = todayKey();
+    const todayActivities = Object.values(state.activities).filter(a => a.date === dk).sort((a,b) => a.id < b.id ? -1 : 1);
+    const totalKcal = todayActivities.reduce((s,a) => s + a.kcal, 0);
+
+    return `
+      <div class="stat-row">
+        <div class="stat-box"><div class="s-num">${todayActivities.length}</div><div class="s-label">Activités</div></div>
+        <div class="stat-box"><div class="s-num">${Math.round(totalKcal)}</div><div class="s-label">Kcal brûlées</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>Ajouter une activité</span></div>
+        ${activityFormHtml('act')}
+        <button class="btn" data-action="add-activity" data-prefix="act">Ajouter l'activité</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>Activités du jour</span>
+          <span style="font-family:var(--font-mono); color:var(--ink-faint); text-transform:none; font-size:12px; font-weight:400;">${todayActivities.length}</span>
+        </div>
+        ${todayActivities.length === 0 ? `
+          <div class="empty-state">Aucune activité enregistrée aujourd'hui.</div>
+        ` : todayActivities.slice().reverse().map(a => `
+          <div class="meal-entry">
+            <div class="meal-entry-info">
+              <div class="meal-entry-name">${a.typeLabel}</div>
+              <div class="meal-entry-meta">${a.duration} min${a.manual ? ' · perso' : ''}</div>
+            </div>
+            <div class="meal-entry-kcal">${Math.round(a.kcal)} kcal</div>
+            <button class="del-btn" data-action="delete-activity" data-id="${a.id}" aria-label="Supprimer">✕</button>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderWeekView(){
+    const dates = getWeekDates();
+    const today = todayKey();
+
+    const aiCard = `
+      <div class="card">
+        <div class="card-title"><span>Programme automatique</span></div>
+        <div class="exo-meta" style="margin-bottom:12px;">Génère un programme sur mesure pour cette semaine (fonctionne même hors ligne) — tu pourras tout modifier ensuite.</div>
+        <button class="btn secondary" data-action="open-ai-plan">✨ Générer mon programme</button>
+      </div>
+    `;
+
+    return aiCard + dates.map(dateStr => {
+      const d = new Date(dateStr + 'T00:00:00');
+      const isToday = dateStr === today;
+      const label = d.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'short' });
+      const sessions = sessionsForDate(dateStr);
+      const adding = state.weekAddingDate === dateStr;
+
+      return `
+        <div class="card">
+          <div class="card-title"><span style="${isToday ? 'color:var(--brand-dark);' : ''}">${label}${isToday ? ' · aujourd’hui' : ''}</span></div>
+          ${sessions.length === 0 ? `<div class="empty-state" style="padding:10px 0;">Aucune séance</div>` : sessions.map(s => {
+            const { totalSets, groups } = sessionStats(s);
+            const badge = s.status === 'terminee' ? '<span class="badge success">Terminée ✓</span>' : '<span class="badge warn">Prévue</span>';
+            return `
+              <div class="session-row" data-action="open-session" data-id="${s.id}">
+                <div class="session-row-info">
+                  <div class="session-name">${s.name}</div>
+                  <div class="session-meta">${s.exercises.length} exercice${s.exercises.length>1?'s':''} · ${totalSets} séries${groups.length ? ' · ' + groups.join(', ') : ''}</div>
+                </div>
+                ${badge}
+              </div>
+            `;
+          }).join('')}
+
+          ${adding ? `
+            <div class="field" style="margin-top:8px;">
+              <label>Nom de la séance</label>
+              <input type="text" id="new-session-name" placeholder="${defaultSessionName(dateStr)}">
+            </div>
+            <div class="field-row">
+              <button class="btn secondary" data-action="cancel-add-session" style="flex:1;">Annuler</button>
+              <button class="btn" data-action="create-session" data-date="${dateStr}" style="flex:1;">Créer</button>
+            </div>
+          ` : `
+            <button class="add-session-btn" data-action="toggle-add-session" data-date="${dateStr}">+ Planifier une séance</button>
+          `}
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderAiPlanSheet(){
+    const dates = getWeekDates();
+    return `
+      <div class="portion-panel ai-plan-panel">
+        <div class="portion-sheet">
+          <h3>Programme automatique de la semaine</h3>
+          <div class="food-per100">Choisis tes jours d'entraînement, l'IA propose une séance adaptée pour chacun.</div>
+
+          <div class="field">
+            <label>Jours d'entraînement</label>
+            <div class="quick-portions" style="flex-wrap:wrap;">
+              ${WEEKDAY_LABELS.map((label, idx) => {
+                const d = new Date(dates[idx] + 'T00:00:00');
+                const active = state.aiPlanDays.includes(idx);
+                return `<button class="quick-portion-btn ${active?'active':''}" data-action="toggle-ai-day" data-idx="${idx}" style="flex:0 0 30%;">${label.slice(0,3)} ${d.getDate()}</button>`;
+              }).join('')}
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Niveau</label>
+            <div class="segmented" style="width:100%;">
+              <button class="seg ${state.aiPlanLevel==='debutant'?'active':''}" data-action="set-ai-level" data-level="debutant" style="flex:1;">Débutant</button>
+              <button class="seg ${state.aiPlanLevel==='intermediaire'?'active':''}" data-action="set-ai-level" data-level="intermediaire" style="flex:1;">Intermédiaire</button>
+              <button class="seg ${state.aiPlanLevel==='avance'?'active':''}" data-action="set-ai-level" data-level="avance" style="flex:1;">Avancé</button>
+            </div>
+          </div>
+
+          <div class="manual-note">Le programme s'ajoute aux séances déjà prévues cette semaine, sans les supprimer.</div>
+
+          <button class="btn" data-action="generate-ai-plan" style="margin-bottom:8px;" ${state.aiPlanLoading ? 'disabled' : ''}>${state.aiPlanLoading ? 'Génération en cours…' : 'Générer le programme'}</button>
+          <button class="btn ghost" data-action="close-ai-plan">Annuler</button>
+        </div>
+      </div>
+    `;
+  }
+
+  async function createWeekPlan(dayIndices, level, dates){
+    const selectedInfo = dayIndices.slice().sort((a,b)=>a-b).map(idx => ({ idx, date: dates[idx] }));
+    const objectif = state.profile.objectif;
+    const { sets, reps } = setsRepsFor(level, objectif);
+    const templates = templatesForCount(selectedInfo.length);
+
+    for(let i=0; i<selectedInfo.length; i++){
+      const info = selectedInfo[i];
+      const tpl = templates[i];
+      const exercisesPicked = pickExercises(tpl.groups, i);
+      const session = {
+        id: 's' + Date.now() + Math.random().toString(36).slice(2,7) + i,
+        date: info.date,
+        name: tpl.name,
+        status: 'planifiee',
+        exercises: exercisesPicked.map(ex => ({
+          id: 'ex' + Date.now() + Math.random().toString(36).slice(2,7),
+          group: ex.group,
+          exercise: ex.exercise,
+          sets, reps,
+          weight: null,
+          feeling: null,
+          feelingLabel: null,
+        })),
+      };
+      await saveSession(session);
+    }
+  }
+
+  async function saveLastPlanConfig(config){
+    try{
+      await window.storage.set('nutripanel:lastplan', JSON.stringify(config), false);
+    }catch(e){ /* ignore */ }
+  }
+
+  async function maybeAutoGenerateWeekPlan(){
+    const dates = getWeekDates();
+    const hasSessionThisWeek = Object.values(state.sessions).some(s => dates.includes(s.date));
+    if(hasSessionThisWeek) return;
+
+    let lastPlan = null;
+    try{
+      const r = await window.storage.get('nutripanel:lastplan', false);
+      if(r) lastPlan = JSON.parse(r.value);
+    }catch(e){ /* ignore */ }
+
+    if(!lastPlan || !lastPlan.days || lastPlan.days.length === 0) return;
+
+    await createWeekPlan(lastPlan.days, lastPlan.level || 'intermediaire', dates);
+  }
+
+  async function generateAiPlan(){
+    if(state.aiPlanLoading) return;
+    if(state.aiPlanDays.length === 0){
+      showToast('Sélectionne au moins un jour');
+      return;
+    }
+
+    state.aiPlanLoading = true;
+    render();
+
+    try{
+      const dates = getWeekDates();
+      await createWeekPlan(state.aiPlanDays, state.aiPlanLevel, dates);
+      await saveLastPlanConfig({ days: state.aiPlanDays.slice(), level: state.aiPlanLevel });
+
+      state.aiPlanLoading = false;
+      state.aiPlanOpen = false;
+      state.aiPlanDays = [];
+      render();
+      showToast('Programme généré ✓');
+    }catch(err){
+      state.aiPlanLoading = false;
+      render();
+      showToast("Erreur lors de la génération du programme");
+    }
+  }
+
+  function renderSessionAnalysisSheet(){
+    const data = state.sessionAnalysisData;
+    if(!data) return '';
+    return `
+      <div class="portion-panel session-analysis-panel">
+        <div class="portion-sheet">
+          <h3>Bilan de séance</h3>
+          <div class="food-per100">${data.sessionName}</div>
+
+          <div class="stat-row">
+            <div class="stat-box"><div class="s-num">${data.progressCount}</div><div class="s-label">Progression</div></div>
+            <div class="stat-box"><div class="s-num">${data.plateauCount}</div><div class="s-label">À booster</div></div>
+            <div class="stat-box"><div class="s-num">${data.newCount}</div><div class="s-label">Nouveaux</div></div>
+          </div>
+
+          ${data.items.map(it => `
+            <div class="exo-entry">
+              <div class="exo-entry-info">
+                <div class="exo-group-tag">${it.group}</div>
+                <div class="exo-name">${it.exercise}</div>
+                <div class="exo-meta">${it.currentLabel}${it.prevLabel ? ' · avant : ' + it.prevLabel : ''}</div>
+                <div class="exo-feeling">${it.icon} ${it.message}</div>
+              </div>
+            </div>
+          `).join('')}
+
+          <button class="btn" data-action="close-session-analysis" style="margin-top:10px;">Fermer</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderSessionDetail(){
+    const s = state.sessions[state.openSessionId];
+    if(!s){ return ''; }
+    const { totalSets, groups } = sessionStats(s);
+    const isDone = s.status === 'terminee';
+
+    return `
+      <div class="portion-panel session-panel">
+        <div class="portion-sheet session-sheet">
+          <h3>${s.name}</h3>
+          <div class="food-per100">${new Date(s.date+'T00:00:00').toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' })} · ${isDone ? 'Terminée ✓' : 'Prévue'}</div>
+
+          <div class="stat-row">
+            <div class="stat-box"><div class="s-num">${s.exercises.length}</div><div class="s-label">Exercices</div></div>
+            <div class="stat-box"><div class="s-num">${totalSets}</div><div class="s-label">Séries</div></div>
+            <div class="stat-box"><div class="s-num">${groups.length}</div><div class="s-label">Groupes</div></div>
+          </div>
+
+          ${s.exercises.length === 0 ? `<div class="empty-state">Aucun exercice enregistré.</div>` : s.exercises.map(e => exerciseRowHtml(e, s.id)).join('')}
+
+          <div class="card-title" style="margin-top:16px;">Ajouter un exercice</div>
+          ${exerciseFormHtml('ds')}
+          <button class="btn secondary" data-action="add-exercise-to-session" data-session="${s.id}" data-prefix="ds" style="margin-bottom:10px;">Ajouter l'exercice</button>
+
+          <button class="btn" data-action="toggle-session-status" data-id="${s.id}" style="margin-bottom:8px;">${isDone ? 'Rouvrir la séance' : 'Marquer comme terminée ✓'}</button>
+          <button class="btn ghost" data-action="delete-session" data-id="${s.id}" style="margin-bottom:8px;">Supprimer la séance</button>
+          <button class="btn ghost" data-action="close-session-detail">Fermer</button>
+        </div>
+      </div>
+    `;
+  }
+
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: HISTORIQUE
+  --------------------------------------------------------------------- */
+  function renderHistory(){
+    const t = state.profile.targets;
+    const dates = Object.keys(state.logs).sort().reverse();
+
+    return `
+      <div class="screen">
+        <h1 class="page-title">Historique</h1>
+        <div class="card" data-action="open-weekly-recap" style="cursor:pointer;">
+          <div class="card-title"><span>Bilan hebdomadaire</span><span class="badge success">Voir</span></div>
+          <div class="exo-meta">Nutrition et entraînement de ta dernière semaine complète.</div>
+        </div>
+        ${dates.length === 0 ? `<div class="card"><div class="empty-state">Pas encore d'historique. Reviens ici après avoir enregistré quelques journées.</div></div>` : dates.map(dateKey => {
+          const totals = dayTotals(dateKey);
+          const pct = Math.min(totals.kcal / t.calories, 1);
+          const d = new Date(dateKey + 'T00:00:00');
+          const label = d.toLocaleDateString('fr-FR', { weekday:'short', day:'numeric', month:'short' });
+          const over = totals.kcal > t.calories;
+          return `
+            <div class="history-day">
+              <div class="history-date">${label}</div>
+              <div class="history-bar-track">
+                <div class="history-bar-fill" style="width:${pct*100}%; background:${over ? 'var(--danger)' : 'var(--brand)'};"></div>
+              </div>
+              <div class="history-kcal">${Math.round(totals.kcal)}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     ÉCRAN: RÉCAP HEBDOMADAIRE
+  --------------------------------------------------------------------- */
+  function renderWeeklyRecapSheet(){
+    const dates = state.weeklyRecapDates || getPreviousWeekDates();
+    const t = state.profile.targets;
+
+    if(state.weeklyRecapStep === 'adjust'){
+      return `
+        <div class="portion-panel weekly-recap-panel">
+          <div class="portion-sheet">
+            <h3>Ajuster ton profil</h3>
+            <div class="food-per100">Nouvelle semaine — mets à jour ton poids si besoin, tes objectifs seront recalculés automatiquement.</div>
+
+            <div class="field">
+              <label>Poids actuel (kg)</label>
+              <input type="number" step="0.1" min="1" id="recap-poids" value="${state.profile.poids}">
+            </div>
+            <div class="field">
+              <label>Objectif de la semaine</label>
+              <select id="recap-objectif">
+                <option value="perte" ${state.profile.objectif==='perte'?'selected':''}>Perte de poids</option>
+                <option value="maintien" ${state.profile.objectif==='maintien'?'selected':''}>Maintien</option>
+                <option value="prise" ${state.profile.objectif==='prise'?'selected':''}>Prise de masse</option>
+              </select>
+            </div>
+
+            <button class="btn" data-action="weekly-recap-save" style="margin-bottom:8px;">Mettre à jour mes objectifs</button>
+            <button class="btn ghost" data-action="weekly-recap-skip">Garder mes objectifs actuels</button>
+          </div>
+        </div>
+      `;
+    }
+
+    const { avg, daysLogged } = weekNutritionSummary(dates);
+    const training = weekTrainingSummary(dates);
+
+    const kcalPct = avg.kcal / t.calories;
+    const proteinPct = avg.protein / t.protein;
+    const carbsPct = avg.carbs / t.carbs;
+    const fatPct = avg.fat / t.fat;
+
+    const microDefs = [
+      {key:'fiber', label:'Fibres', unit:'g', target:t.fiber, color:'var(--fiber)'},
+      {key:'vitC', label:'Vit. C', unit:'mg', target:t.vitC, color:'var(--micro-2)'},
+      {key:'iron', label:'Fer', unit:'mg', target:t.iron, color:'var(--micro-1)'},
+      {key:'calcium', label:'Calcium', unit:'mg', target:t.calcium, color:'var(--micro-3)'},
+      {key:'vitD', label:'Vit. D', unit:'µg', target:t.vitD, color:'var(--micro-4)'},
+      {key:'potassium', label:'Potassium', unit:'mg', target:t.potassium, color:'var(--micro-5)'},
+      {key:'magnesium', label:'Magnésium', unit:'mg', target:t.magnesium, color:'var(--micro-6)'},
+      {key:'sodium', label:'Sodium', unit:'mg', target:t.sodiumMax, color:'var(--danger)', isLimit:true},
+    ];
+
+    return `
+      <div class="portion-panel weekly-recap-panel">
+        <div class="portion-sheet">
+          <h3>Récap de la semaine</h3>
+          <div class="food-per100">${weekRangeLabel(dates)} · ${daysLogged}/7 jours suivis</div>
+
+          <div class="card-title" style="margin-top:4px;">Nutrition (moy./jour)</div>
+          <div class="macro-rings" style="margin-bottom:16px; flex-wrap:wrap;">
+            <div class="macro-ring-item">
+              ${ringSvg(54, 7, kcalPct, 'var(--brand)', 'var(--surface)')}
+              <div class="m-label">Kcal</div>
+              <div class="m-val">${Math.round(avg.kcal)}<span class="of">/${t.calories}</span></div>
+            </div>
+            <div class="macro-ring-item">
+              ${ringSvg(54, 7, proteinPct, 'var(--protein)', 'var(--surface)')}
+              <div class="m-label">Prot.</div>
+              <div class="m-val">${Math.round(avg.protein)}<span class="of">/${t.protein}g</span></div>
+            </div>
+            <div class="macro-ring-item">
+              ${ringSvg(54, 7, carbsPct, 'var(--carbs)', 'var(--surface)')}
+              <div class="m-label">Gluc.</div>
+              <div class="m-val">${Math.round(avg.carbs)}<span class="of">/${t.carbs}g</span></div>
+            </div>
+            <div class="macro-ring-item">
+              ${ringSvg(54, 7, fatPct, 'var(--fat)', 'var(--surface)')}
+              <div class="m-label">Lip.</div>
+              <div class="m-val">${Math.round(avg.fat)}<span class="of">/${t.fat}g</span></div>
+            </div>
+          </div>
+
+          <div class="card-title">Micronutriments (moy./jour)</div>
+          ${microDefs.map(m => {
+            const val = avg[m.key];
+            const pct = Math.min(val / m.target, 1);
+            const over = m.isLimit && val > m.target;
+            return `
+              <div class="micro-row">
+                <div class="micro-name">${m.label}</div>
+                <div class="micro-track">
+                  <div class="micro-fill" style="width:${pct*100}%; background:${over ? 'var(--danger)' : m.color};"></div>
+                </div>
+                <div class="micro-val ${over ? 'over' : ''}">${round1(val)}/${m.target}${m.unit}</div>
+              </div>`;
+          }).join('')}
+
+          <div class="card-title" style="margin-top:16px;">Sport</div>
+          ${training.finishedSessions === 0 ? `
+            <div class="empty-state" style="padding:14px 0;">Aucune séance terminée cette semaine.</div>
+          ` : `
+            <div class="stat-row">
+              <div class="stat-box"><div class="s-num">${training.finishedSessions}</div><div class="s-label">Séances</div></div>
+              <div class="stat-box"><div class="s-num">${training.totalSets}</div><div class="s-label">Séries</div></div>
+              <div class="stat-box"><div class="s-num">${training.groups.length}</div><div class="s-label">Groupes</div></div>
+            </div>
+            ${training.groups.length ? `<div>${training.groups.map(g => `<span class="group-chip">${g}</span>`).join('')}</div>` : ''}
+          `}
+
+          <button class="btn" data-action="weekly-recap-next" style="margin-top:16px;">Continuer</button>
+        </div>
+      </div>
+    `;
+  }
+
+  /* ---------------------------------------------------------------------
+     NAV & CADRE GÉNÉRAL
+  --------------------------------------------------------------------- */
+  function iconToday(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>`; }
+  function iconAdd(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>`; }
+  function iconProfile(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>`; }
+  function iconHistory(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/><path d="M12 8v4l3 2"/></svg>`; }
+  function iconTraining(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`; }
+  function iconSettings(){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`; }
+
+  function render(){
+    const root = document.getElementById('root');
+    if(!state.loaded){ root.innerHTML = '<div class="loading">Chargement…</div>'; return; }
+
+    if(state.screen === 'splash'){
+      root.innerHTML = renderSplash();
+      return;
+    }
+
+    if(state.screen === 'welcome'){
+      root.innerHTML = renderWelcome();
+      return;
+    }
+
+    let body = '';
+    if(!state.profile || state.screen === 'profile'){
+      body = renderProfile();
+    } else if(state.screen === 'today'){
+      body = renderToday();
+    } else if(state.screen === 'add'){
+      body = renderAdd();
+    } else if(state.screen === 'training'){
+      body = renderTraining();
+    } else if(state.screen === 'history'){
+      body = renderHistory();
+    }
+
+    const showNav = !!state.profile;
+
+    root.innerHTML = `
+      <div class="topbar">
+        <div class="brand-mark">Nutri<b>Panel</b></div>
+        <div class="topbar-right">
+          <div class="date">${new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' })}</div>
+          <button class="settings-btn" data-action="open-settings" aria-label="Réglages">${iconSettings()}</button>
+        </div>
+      </div>
+      ${body}
+      ${state.toast ? `<div class="toast">${state.toast}</div>` : ''}
+      ${showNav ? `
+        <div class="bottom-nav">
+          <button class="nav-btn ${state.screen==='today'?'active':''}" data-action="nav" data-screen="today">${iconToday()}<span>Jour</span></button>
+          <button class="nav-btn ${state.screen==='add'?'active':''}" data-action="nav" data-screen="add">${iconAdd()}<span>Ajouter</span></button>
+          <button class="nav-btn ${state.screen==='training'?'active':''}" data-action="nav" data-screen="training">${iconTraining()}<span>Sport</span></button>
+          <button class="nav-btn ${state.screen==='history'?'active':''}" data-action="nav" data-screen="history">${iconHistory()}<span>Historique</span></button>
+          <button class="nav-btn ${state.screen==='profile'?'active':''}" data-action="nav" data-screen="profile">${iconProfile()}<span>Profil</span></button>
+        </div>
+      ` : ''}
+      ${state.weeklyRecapOpen ? renderWeeklyRecapSheet() : ''}
+      ${state.settingsOpen ? renderSettingsSheet() : ''}
+    `;
+
+    attachInputFocus();
+  }
+
+  function renderSettingsSheet(){
+    const theme = state.theme;
+    return `
+      <div class="portion-panel settings-panel">
+        <div class="portion-sheet">
+          <h3>Réglages</h3>
+          <div class="food-per100">Personnalise les couleurs de l'application.</div>
+
+          <div class="field">
+            <label>Couleur principale (boutons, icônes, bannières)</label>
+            <input type="color" id="theme-accent" value="${theme.accent}" style="width:100%; height:48px; padding:4px; border-radius:11px; border:1px solid var(--line); background:var(--surface-soft);">
+          </div>
+
+          <div class="field">
+            <label>Couleur de fond</label>
+            <input type="color" id="theme-bg" value="${theme.bg}" style="width:100%; height:48px; padding:4px; border-radius:11px; border:1px solid var(--line); background:var(--surface-soft);">
+          </div>
+
+          <div class="manual-note">Les émoticônes (😌 💪 🎉…) gardent leurs couleurs d'origine, propres au système — seules les couleurs de l'interface sont personnalisables.</div>
+
+          <button class="btn" data-action="apply-theme" style="margin-top:8px; margin-bottom:8px;">Appliquer</button>
+          <button class="btn secondary" data-action="reset-theme" style="margin-bottom:8px;">Réinitialiser les couleurs</button>
+          <button class="btn ghost" data-action="close-settings">Fermer</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function attachInputFocus(){
+    const searchInput = document.getElementById('food-search');
+    if(searchInput){
+      const pos = searchInput.value.length;
+      searchInput.focus();
+      searchInput.setSelectionRange(pos, pos);
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     ACTIONS
+  --------------------------------------------------------------------- */
+  document.addEventListener('click', async (e) => {
+    if(e.target.classList && e.target.classList.contains('ai-plan-panel')){
+      state.aiPlanOpen = false;
+      render();
+      return;
+    }
+    if(e.target.classList && e.target.classList.contains('session-panel')){
+      state.openSessionId = null;
+      render();
+      return;
+    }
+    if(e.target.classList && e.target.classList.contains('session-analysis-panel')){
+      state.sessionAnalysisOpen = false;
+      state.sessionAnalysisData = null;
+      render();
+      return;
+    }
+    if(e.target.classList && e.target.classList.contains('weekly-recap-panel')){
+      await closeWeeklyRecap();
+      return;
+    }
+    if(e.target.classList && e.target.classList.contains('custom-food-panel')){
+      state.customFoodOpen = false;
+      render();
+      return;
+    }
+    if(e.target.classList && e.target.classList.contains('settings-panel')){
+      state.settingsOpen = false;
+      render();
+      return;
+    }
+    if(e.target.classList && e.target.classList.contains('portion-panel')){
+      state.portionFood = null;
+      render();
+      return;
+    }
+
+    const el = e.target.closest('[data-action]');
+    if(!el) return;
+    const action = el.dataset.action;
+
+    if(action === 'enter-app'){
+      state.screen = state.afterSplashScreen || (state.profile ? 'today' : 'welcome');
+      render();
+    }
+
+    else if(action === 'start-onboarding'){
+      state.screen = 'profile';
+      render();
+    }
+
+    else if(action === 'nav'){
+      state.screen = el.dataset.screen;
+      state.portionFood = null;
+      render();
+    }
+
+    else if(action === 'save-profile'){
+      const age = parseInt(document.getElementById('f-age').value, 10);
+      const sexe = document.getElementById('f-sexe').value;
+      const poids = parseFloat(document.getElementById('f-poids').value);
+      const taille = parseFloat(document.getElementById('f-taille').value);
+      const activite = document.getElementById('f-activite').value;
+      const objectif = document.getElementById('f-objectif').value;
+
+      if(!age || !poids || !taille){
+        showToast('Merci de remplir âge, poids et taille');
+        return;
+      }
+      const profile = { age, sexe, poids, taille, activite, objectif };
+      profile.targets = computeTargets(profile);
+      await saveProfile(profile);
+      state.screen = 'today';
+      showToast('Objectifs mis à jour ✓');
+    }
+
+    else if(action === 'edit-goals'){
+      state.editingGoals = true;
+      render();
+    }
+
+    else if(action === 'cancel-edit-goals'){
+      state.editingGoals = false;
+      render();
+    }
+
+    else if(action === 'save-goals'){
+      const newTargets = { ...state.profile.targets };
+      for(const f of GOAL_FIELDS){
+        const input = document.getElementById('goal-'+f.key);
+        const val = parseFloat(input.value);
+        if(!isNaN(val)) newTargets[f.key] = val;
+      }
+      state.profile.targets = newTargets;
+      await saveProfile(state.profile);
+      state.editingGoals = false;
+      render();
+      showToast('Objectifs mis à jour ✓');
+    }
+
+    else if(action === 'set-category'){
+      state.foodCategory = el.dataset.cat;
+      render();
+    }
+
+    else if(action === 'pick-food'){
+      const food = FOODS.find(f => f.id === el.dataset.food) || state.customFoods[el.dataset.food];
+      state.portionFood = food;
+      state.portionGrams = 100;
+      state.portionManual = false;
+      state.manualValues = { kcal: food.kcal, protein: food.protein, carbs: food.carbs, fat: food.fat };
+      render();
+    }
+
+    else if(action === 'set-portion'){
+      state.portionGrams = parseInt(el.dataset.grams, 10);
+      if(!state.portionManual){
+        render();
+      } else {
+        render();
+      }
+    }
+
+    else if(action === 'set-manual'){
+      const wantsManual = el.dataset.manual === '1';
+      if(wantsManual && !state.portionManual){
+        const factor = state.portionGrams / 100;
+        const f = state.portionFood;
+        state.manualValues = {
+          kcal: Math.round(f.kcal * factor),
+          protein: round1(f.protein * factor),
+          carbs: round1(f.carbs * factor),
+          fat: round1(f.fat * factor),
+        };
+      }
+      state.portionManual = wantsManual;
+      render();
+    }
+
+    else if(action === 'cancel-portion' || action === 'close-portion-overlay'){
+      state.portionFood = null;
+      render();
+    }
+
+    else if(action === 'set-meal-type'){
+      state.mealType = el.dataset.meal;
+      render();
+    }
+
+    else if(action === 'confirm-add-food'){
+      const f = state.portionFood;
+      const grams = state.portionGrams;
+      const factor = grams / 100;
+      const mealLabel = MEAL_TYPES.find(m => m.id === state.mealType).label;
+
+      let kcal, protein, carbs, fat;
+      if(state.portionManual){
+        kcal = state.manualValues.kcal;
+        protein = state.manualValues.protein;
+        carbs = state.manualValues.carbs;
+        fat = state.manualValues.fat;
+      } else {
+        kcal = f.kcal * factor;
+        protein = f.protein * factor;
+        carbs = f.carbs * factor;
+        fat = f.fat * factor;
+      }
+
+      const entry = {
+        id: 'e' + Date.now() + Math.random().toString(36).slice(2,7),
+        foodId: f.id,
+        name: f.name,
+        grams,
+        unit: f.unit || 'g',
+        mealType: state.mealType,
+        mealLabel,
+        manual: state.portionManual,
+        kcal, protein, carbs, fat,
+        fiber: f.fiber * factor,
+        vitC: f.vitC * factor,
+        iron: f.iron * factor,
+        calcium: f.calcium * factor,
+        vitD: f.vitD * factor,
+        potassium: f.potassium * factor,
+        magnesium: f.magnesium * factor,
+        sodium: f.sodium * factor,
+      };
+      const dk = todayKey();
+      if(!state.logs[dk]) state.logs[dk] = [];
+      state.logs[dk].push(entry);
+      await saveDayLog(dk);
+      state.portionFood = null;
+      state.screen = 'today';
+      showToast(f.name + ' ajouté ✓');
+    }
+
+    else if(action === 'delete-entry'){
+      const dk = todayKey();
+      state.logs[dk] = (state.logs[dk] || []).filter(x => x.id !== el.dataset.id);
+      await saveDayLog(dk);
+      render();
+    }
+
+    else if(action === 'set-training-subtab'){
+      state.trainingSubTab = el.dataset.tab;
+      render();
+    }
+
+    else if(action === 'start-session'){
+      const dk = todayKey();
+      const session = {
+        id: 's' + Date.now() + Math.random().toString(36).slice(2,7),
+        date: dk,
+        name: defaultSessionName(dk),
+        status: 'planifiee',
+        exercises: [],
+      };
+      await saveSession(session);
+      render();
+    }
+
+    else if(action === 'add-exercise-to-session'){
+      const prefix = el.dataset.prefix;
+      const sessionId = el.dataset.session;
+      const session = state.sessions[sessionId];
+      if(!session) return;
+
+      const group = document.getElementById(prefix+'-group').value;
+      const exerciseSelect = document.getElementById(prefix+'-exercise-select').value;
+      const exercise = exerciseSelect === '__custom__'
+        ? document.getElementById(prefix+'-exercise-custom').value.trim()
+        : exerciseSelect;
+      const sets = parseInt(document.getElementById(prefix+'-sets').value, 10);
+      const reps = parseInt(document.getElementById(prefix+'-reps').value, 10);
+      const weight = parseFloat(document.getElementById(prefix+'-weight').value);
+      const feelingId = document.getElementById(prefix+'-feeling').value;
+
+      if(!exercise || !sets || !reps){
+        showToast('Renseigne au moins l\'exercice, les séries et les répétitions');
+        return;
+      }
+
+      const feelingObj = FEELINGS.find(f => f.id === feelingId);
+      session.exercises.push({
+        id: 'ex' + Date.now() + Math.random().toString(36).slice(2,7),
+        group, exercise, sets, reps,
+        weight: isNaN(weight) ? null : weight,
+        feeling: feelingId || null,
+        feelingLabel: feelingId ? feelingObj.label : null,
+      });
+      state.trainingLastGroup = group;
+      await saveSession(session);
+      render();
+      showToast(exercise + ' ajouté à la séance ✓');
+    }
+
+    else if(action === 'delete-exercise-from-session'){
+      const session = state.sessions[el.dataset.session];
+      if(!session) return;
+      session.exercises = session.exercises.filter(x => x.id !== el.dataset.id);
+      await saveSession(session);
+      render();
+    }
+
+    else if(action === 'finish-session'){
+      const session = state.sessions[el.dataset.id];
+      if(!session) return;
+      session.status = 'terminee';
+      const analysis = computeSessionAnalysis(session);
+      await saveSession(session);
+      state.sessionAnalysisData = analysis;
+      state.sessionAnalysisOpen = true;
+      render();
+    }
+
+    else if(action === 'toggle-session-status'){
+      const session = state.sessions[el.dataset.id];
+      if(!session) return;
+      const becomingDone = session.status !== 'terminee';
+      session.status = becomingDone ? 'terminee' : 'planifiee';
+      const analysis = becomingDone ? computeSessionAnalysis(session) : null;
+      await saveSession(session);
+      if(becomingDone){
+        state.openSessionId = null;
+        state.sessionAnalysisData = analysis;
+        state.sessionAnalysisOpen = true;
+      }
+      render();
+    }
+
+    else if(action === 'close-session-analysis'){
+      state.sessionAnalysisOpen = false;
+      state.sessionAnalysisData = null;
+      render();
+    }
+
+    else if(action === 'delete-session'){
+      await deleteSessionStorage(el.dataset.id);
+      state.openSessionId = null;
+      render();
+    }
+
+    else if(action === 'open-session'){
+      state.openSessionId = el.dataset.id;
+      render();
+    }
+
+    else if(action === 'close-session-detail'){
+      state.openSessionId = null;
+      render();
+    }
+
+    else if(action === 'toggle-add-session'){
+      state.weekAddingDate = el.dataset.date;
+      render();
+    }
+
+    else if(action === 'cancel-add-session'){
+      state.weekAddingDate = null;
+      render();
+    }
+
+    else if(action === 'create-session'){
+      const dateStr = el.dataset.date;
+      const nameInput = document.getElementById('new-session-name');
+      const name = (nameInput && nameInput.value.trim()) || defaultSessionName(dateStr);
+      const session = {
+        id: 's' + Date.now() + Math.random().toString(36).slice(2,7),
+        date: dateStr,
+        name,
+        status: 'planifiee',
+        exercises: [],
+      };
+      await saveSession(session);
+      state.weekAddingDate = null;
+      state.openSessionId = session.id;
+      render();
+    }
+
+    else if(action === 'open-ai-plan'){
+      state.aiPlanOpen = true;
+      render();
+    }
+
+    else if(action === 'close-ai-plan'){
+      state.aiPlanOpen = false;
+      render();
+    }
+
+    else if(action === 'toggle-ai-day'){
+      const idx = parseInt(el.dataset.idx, 10);
+      const i = state.aiPlanDays.indexOf(idx);
+      if(i === -1) state.aiPlanDays.push(idx);
+      else state.aiPlanDays.splice(i, 1);
+      render();
+    }
+
+    else if(action === 'set-ai-level'){
+      state.aiPlanLevel = el.dataset.level;
+      render();
+    }
+
+    else if(action === 'generate-ai-plan'){
+      await generateAiPlan();
+    }
+
+    else if(action === 'add-activity'){
+      const prefix = el.dataset.prefix;
+      const typeId = document.getElementById(prefix+'-type').value;
+      const duration = parseInt(document.getElementById(prefix+'-duration').value, 10);
+      const kcalInput = document.getElementById(prefix+'-kcal').value;
+      const typeObj = ACTIVITY_TYPES.find(t => t.id === typeId);
+
+      if(!duration || duration <= 0){
+        showToast('Renseigne une durée valide');
+        return;
+      }
+
+      const manualKcal = parseFloat(kcalInput);
+      let kcal;
+      if(!isNaN(manualKcal) && manualKcal > 0){
+        kcal = manualKcal;
+      } else {
+        const weight = (state.profile && state.profile.poids) || 70;
+        kcal = typeObj.met * 3.5 * weight / 200 * duration;
+      }
+
+      const activity = {
+        id: 'act' + Date.now() + Math.random().toString(36).slice(2,7),
+        date: todayKey(),
+        type: typeId,
+        typeLabel: typeObj.label,
+        duration,
+        kcal,
+        manual: !isNaN(manualKcal) && manualKcal > 0,
+      };
+      await saveActivity(activity);
+      render();
+      showToast(typeObj.label + ' ajouté ✓');
+    }
+
+    else if(action === 'delete-activity'){
+      await deleteActivityStorage(el.dataset.id);
+      render();
+    }
+
+    else if(action === 'open-custom-food'){
+      state.customFoodOpen = true;
+      state.customFoodCategory = 'aliment';
+      render();
+    }
+
+    else if(action === 'close-custom-food'){
+      state.customFoodOpen = false;
+      render();
+    }
+
+    else if(action === 'set-custom-food-cat'){
+      state.customFoodCategory = el.dataset.cat;
+      render();
+    }
+
+    else if(action === 'save-custom-food'){
+      const name = document.getElementById('cf-name').value.trim();
+      const kcal = parseFloat(document.getElementById('cf-kcal').value);
+      if(!name || isNaN(kcal) || kcal < 0){
+        showToast('Renseigne au moins le nom et les calories');
+        return;
+      }
+      const food = {
+        id: 'cf' + Date.now() + Math.random().toString(36).slice(2,7),
+        name,
+        category: state.customFoodCategory,
+        unit: state.customFoodCategory === 'boisson' ? 'ml' : 'g',
+        kcal,
+        protein: parseFloat(document.getElementById('cf-protein').value) || 0,
+        carbs: parseFloat(document.getElementById('cf-carbs').value) || 0,
+        fat: parseFloat(document.getElementById('cf-fat').value) || 0,
+        fiber: parseFloat(document.getElementById('cf-fiber').value) || 0,
+        vitC: parseFloat(document.getElementById('cf-vitc').value) || 0,
+        iron: parseFloat(document.getElementById('cf-iron').value) || 0,
+        calcium: parseFloat(document.getElementById('cf-calcium').value) || 0,
+        vitD: parseFloat(document.getElementById('cf-vitd').value) || 0,
+        potassium: parseFloat(document.getElementById('cf-potassium').value) || 0,
+        magnesium: parseFloat(document.getElementById('cf-magnesium').value) || 0,
+        sodium: parseFloat(document.getElementById('cf-sodium').value) || 0,
+        custom: true,
+      };
+      await saveCustomFood(food);
+      state.customFoodOpen = false;
+      render();
+      showToast(name + ' ajouté à tes aliments ✓');
+    }
+
+    else if(action === 'open-settings'){
+      state.settingsOpen = true;
+      render();
+    }
+
+    else if(action === 'close-settings'){
+      state.settingsOpen = false;
+      render();
+    }
+
+    else if(action === 'apply-theme'){
+      const accent = document.getElementById('theme-accent').value;
+      const bg = document.getElementById('theme-bg').value;
+      state.theme = { accent, bg };
+      applyThemeVars(state.theme);
+      await saveTheme(state.theme);
+      state.settingsOpen = false;
+      render();
+      showToast('Couleurs mises à jour ✓');
+    }
+
+    else if(action === 'reset-theme'){
+      state.theme = { ...DEFAULT_THEME };
+      applyThemeVars(state.theme);
+      await saveTheme(state.theme);
+      state.settingsOpen = false;
+      render();
+      showToast('Couleurs réinitialisées ✓');
+    }
+
+    else if(action === 'open-weekly-recap'){
+      const dates = getPreviousWeekDates();
+      state.weeklyRecapOpen = true;
+      state.weeklyRecapWeekStart = dates[0];
+      state.weeklyRecapDates = dates;
+      state.weeklyRecapStep = 'recap';
+      render();
+    }
+
+    else if(action === 'weekly-recap-next'){
+      state.weeklyRecapStep = 'adjust';
+      render();
+    }
+
+    else if(action === 'weekly-recap-skip'){
+      await closeWeeklyRecap();
+      showToast('À la semaine prochaine 💪');
+    }
+
+    else if(action === 'weekly-recap-save'){
+      const poids = parseFloat(document.getElementById('recap-poids').value);
+      const objectif = document.getElementById('recap-objectif').value;
+      if(!poids || poids <= 0){
+        showToast('Merci d\'indiquer un poids valide');
+        return;
+      }
+      const profile = { ...state.profile, poids, objectif };
+      profile.targets = computeTargets(profile);
+      await saveProfile(profile);
+      await closeWeeklyRecap();
+      showToast('Objectifs mis à jour ✓');
+    }
+  });
+
+  document.addEventListener('change', (e) => {
+    if(e.target.id && e.target.id.endsWith('-exercise-select')){
+      const prefix = e.target.id.replace('-exercise-select', '');
+      const wrap = document.getElementById(prefix+'-exercise-custom-wrap');
+      if(wrap) wrap.style.display = e.target.value === '__custom__' ? 'block' : 'none';
+    }
+  });
+
+  document.addEventListener('input', (e) => {
+    if(e.target.id === 'food-search'){
+      state.searchQuery = e.target.value;
+      render();
+    }
+    if(e.target.id === 'portion-input'){
+      const v = parseInt(e.target.value, 10);
+      state.portionGrams = isNaN(v) ? 0 : v;
+      render();
+    }
+    if(e.target.id === 'manual-kcal'){
+      state.manualValues.kcal = parseFloat(e.target.value) || 0;
+    }
+    if(e.target.id === 'manual-protein'){
+      state.manualValues.protein = parseFloat(e.target.value) || 0;
+    }
+    if(e.target.id === 'manual-carbs'){
+      state.manualValues.carbs = parseFloat(e.target.value) || 0;
+    }
+    if(e.target.id === 'manual-fat'){
+      state.manualValues.fat = parseFloat(e.target.value) || 0;
+    }
+  });
+
+  loadAll();
+})();
+</script>
+</body>
+</html>
