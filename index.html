@@ -1236,6 +1236,7 @@
     trainingSubTab: 'current', // current | week
     openSessionId: null,
     weekAddingDate: null,
+    weekViewMode: 'current', // current | last
     editingGoals: false,
     aiPlanOpen: false,
     aiPlanDays: [],
@@ -2391,23 +2392,42 @@
   }
 
   function renderWeekView(){
-    const dates = getWeekDates();
+    const mode = state.weekViewMode === 'last' ? 'last' : 'current';
+    const dates = mode === 'last' ? getPreviousWeekDates() : getWeekDates();
     const today = todayKey();
 
-    const aiCard = `
+    const lastWeekDates = getPreviousWeekDates();
+    const lastWeekHasSessions = lastWeekDates.some(d => sessionsForDate(d).length > 0);
+
+    const toggleRow = `
+      <div class="cat-tabs" style="margin-bottom:12px;">
+        <button class="cat-tab ${mode==='current'?'active':''}" data-action="set-week-view" data-mode="current">Cette semaine</button>
+        <button class="cat-tab ${mode==='last'?'active':''}" data-action="set-week-view" data-mode="last">Semaine dernière</button>
+      </div>
+      <div class="exo-meta" style="margin: -4px 0 14px;">${weekRangeLabel(dates)}</div>
+    `;
+
+    const aiCard = mode === 'current' ? `
       <div class="card">
         <div class="card-title"><span>Programme automatique</span></div>
         <div class="exo-meta" style="margin-bottom:12px;">Génère un programme sur mesure pour cette semaine (fonctionne même hors ligne) — tu pourras tout modifier ensuite.</div>
         <button class="btn secondary" data-action="open-ai-plan">✨ Générer mon programme</button>
       </div>
-    `;
+      ${lastWeekHasSessions ? `
+      <div class="card">
+        <div class="card-title"><span>Reprendre la semaine dernière</span></div>
+        <div class="exo-meta" style="margin-bottom:12px;">Reprogramme les mêmes séances (mêmes exercices, séries et répétitions) sur les mêmes jours cette semaine.</div>
+        <button class="btn secondary" data-action="apply-last-week">↺ Programmer comme la semaine dernière</button>
+      </div>
+      ` : ''}
+    ` : '';
 
-    return aiCard + dates.map(dateStr => {
+    const daysHtml = dates.map(dateStr => {
       const d = new Date(dateStr + 'T00:00:00');
       const isToday = dateStr === today;
       const label = d.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'short' });
       const sessions = sessionsForDate(dateStr);
-      const adding = state.weekAddingDate === dateStr;
+      const adding = mode === 'current' && state.weekAddingDate === dateStr;
 
       return `
         <div class="card">
@@ -2426,7 +2446,7 @@
             `;
           }).join('')}
 
-          ${adding ? `
+          ${mode === 'current' ? (adding ? `
             <div class="field" style="margin-top:8px;">
               <label>Nom de la séance</label>
               <input type="text" id="new-session-name" placeholder="${defaultSessionName(dateStr)}">
@@ -2437,10 +2457,58 @@
             </div>
           ` : `
             <button class="add-session-btn" data-action="toggle-add-session" data-date="${dateStr}">+ Planifier une séance</button>
-          `}
+          `) : ''}
         </div>
       `;
     }).join('');
+
+    return toggleRow + aiCard + daysHtml;
+  }
+
+  async function applyLastWeekPlan(){
+    const lastDates = getPreviousWeekDates();
+    const thisDates = getWeekDates();
+    const lastSessions = lastDates.flatMap(d => sessionsForDate(d));
+
+    if(lastSessions.length === 0){
+      showToast('Aucune séance à reprendre la semaine dernière');
+      return;
+    }
+
+    let count = 0;
+    for(let i=0; i<lastSessions.length; i++){
+      const s = lastSessions[i];
+      const dayIdx = lastDates.indexOf(s.date);
+      if(dayIdx === -1) continue;
+      const newDate = thisDates[dayIdx];
+
+      const alreadyExists = sessionsForDate(newDate).some(ex => ex.name === s.name);
+      if(alreadyExists) continue;
+
+      const newSession = {
+        id: 's' + Date.now() + Math.random().toString(36).slice(2,7) + i,
+        date: newDate,
+        name: s.name,
+        status: 'planifiee',
+        exercises: s.exercises.map((e, j) => ({
+          id: 'ex' + Date.now() + Math.random().toString(36).slice(2,7) + i + '_' + j,
+          group: e.group,
+          exercise: e.exercise,
+          sets: e.sets,
+          reps: e.reps,
+          weight: null,
+          feeling: null,
+          feelingLabel: null,
+        })),
+      };
+      await saveSession(newSession);
+      count++;
+    }
+
+    render();
+    showToast(count > 0
+      ? `Semaine programmée (${count} séance${count>1?'s':''}) ✓`
+      : 'Ces séances sont déjà programmées cette semaine');
   }
 
   function renderAiPlanSheet(){
@@ -3231,6 +3299,15 @@
     else if(action === 'close-session-detail'){
       state.openSessionId = null;
       render();
+    }
+
+    else if(action === 'set-week-view'){
+      state.weekViewMode = el.dataset.mode;
+      render();
+    }
+
+    else if(action === 'apply-last-week'){
+      await applyLastWeekPlan();
     }
 
     else if(action === 'toggle-add-session'){
