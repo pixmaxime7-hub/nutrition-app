@@ -2787,6 +2787,19 @@
     const root = document.getElementById('root');
     if(!state.loaded){ root.innerHTML = '<div class="loading">Chargement…</div>'; return; }
 
+    // Mémorise le champ actuellement en cours de saisie (id + position du
+    // curseur) pour pouvoir lui redonner le focus après la reconstruction
+    // du DOM ci-dessous, sinon le clavier se ferme et la saisie est perdue.
+    const activeEl = document.activeElement;
+    let focusInfo = null;
+    if(activeEl && activeEl.id && root.contains(activeEl)){
+      focusInfo = {
+        id: activeEl.id,
+        start: (typeof activeEl.selectionStart === 'number') ? activeEl.selectionStart : null,
+        end: (typeof activeEl.selectionEnd === 'number') ? activeEl.selectionEnd : null,
+      };
+    }
+
     if(state.screen === 'splash'){
       root.innerHTML = renderSplash();
       return;
@@ -2835,7 +2848,7 @@
       ${state.settingsOpen ? renderSettingsSheet() : ''}
     `;
 
-    attachInputFocus();
+    attachInputFocus(focusInfo);
   }
 
   function renderSettingsSheet(){
@@ -2866,7 +2879,19 @@
     `;
   }
 
-  function attachInputFocus(){
+  function attachInputFocus(focusInfo){
+    // Si un champ était en cours de saisie avant le re-render, on lui
+    // redonne le focus et on remet le curseur à la même position.
+    if(focusInfo && focusInfo.id){
+      const el = document.getElementById(focusInfo.id);
+      if(el){
+        el.focus();
+        if(typeof el.setSelectionRange === 'function' && focusInfo.start !== null){
+          try{ el.setSelectionRange(focusInfo.start, focusInfo.end); }catch(e){}
+        }
+        return;
+      }
+    }
     const searchInput = document.getElementById('food-search');
     if(searchInput){
       const pos = searchInput.value.length;
