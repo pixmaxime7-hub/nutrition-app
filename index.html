@@ -522,6 +522,29 @@
     margin: 0 0 4px;
     color: var(--ink);
   }
+  .sheet-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 10px;
+  }
+  .sheet-header h3{ flex:1; min-width:0; }
+  .sheet-close-btn{
+    flex-shrink:0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface-soft);
+    color: var(--ink-dim);
+    font-size: 13px;
+    line-height: 1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top: -2px;
+  }
+  .sheet-close-btn:active{ background: var(--line); }
   .portion-sheet .food-per100{
     font-size: 12px;
     color: var(--ink-faint);
@@ -1846,7 +1869,10 @@
     return `
       <div class="portion-panel custom-food-panel">
         <div class="portion-sheet">
-          <h3>Ajouter un aliment personnalisé</h3>
+          <div class="sheet-header">
+            <h3>Ajouter un aliment personnalisé</h3>
+            <button class="sheet-close-btn" data-action="close-custom-food" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">Renseigne les valeurs pour 100 g / 100 ml.</div>
 
           <div class="field">
@@ -1915,7 +1941,10 @@
     return `
       <div class="portion-panel">
         <div class="portion-sheet">
-          <h3>${f.name}</h3>
+          <div class="sheet-header">
+            <h3>${f.name}</h3>
+            <button class="sheet-close-btn" data-action="cancel-portion" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">${isPiece
             ? `${Math.round(f.kcal*f.pieceGrams/100)} kcal · ${round1(f.protein*f.pieceGrams/100)}g P · ${round1(f.carbs*f.pieceGrams/100)}g G · ${round1(f.fat*f.pieceGrams/100)}g L (pour 1 ${f.pieceLabel}, ≈${f.pieceGrams}g)`
             : `${f.kcal} kcal · ${f.protein}g P · ${f.carbs}g G · ${f.fat}g L (pour 100${unit})`}</div>
@@ -2547,7 +2576,10 @@
     return `
       <div class="portion-panel ai-plan-panel">
         <div class="portion-sheet">
-          <h3>Programme automatique de la semaine</h3>
+          <div class="sheet-header">
+            <h3>Programme automatique de la semaine</h3>
+            <button class="sheet-close-btn" data-action="close-ai-plan" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">Choisis tes jours d'entraînement, l'IA propose une séance adaptée pour chacun.</div>
 
           <div class="field">
@@ -2664,7 +2696,10 @@
     return `
       <div class="portion-panel session-analysis-panel">
         <div class="portion-sheet">
-          <h3>Bilan de séance</h3>
+          <div class="sheet-header">
+            <h3>Bilan de séance</h3>
+            <button class="sheet-close-btn" data-action="close-session-analysis" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">${data.sessionName}</div>
 
           <div class="stat-row">
@@ -2699,7 +2734,10 @@
     return `
       <div class="portion-panel session-panel">
         <div class="portion-sheet session-sheet">
-          <h3>${s.name}</h3>
+          <div class="sheet-header">
+            <h3>${s.name}</h3>
+            <button class="sheet-close-btn" data-action="close-session-detail" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">${new Date(s.date+'T00:00:00').toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' })} · ${isDone ? 'Terminée ✓' : 'Prévue'}</div>
 
           <div class="stat-row">
@@ -2768,7 +2806,10 @@
       return `
         <div class="portion-panel weekly-recap-panel">
           <div class="portion-sheet">
-            <h3>Ajuster ton profil</h3>
+            <div class="sheet-header">
+              <h3>Ajuster ton profil</h3>
+              <button class="sheet-close-btn" data-action="weekly-recap-skip" aria-label="Fermer">✕</button>
+            </div>
             <div class="food-per100">Nouvelle semaine — mets à jour ton poids si besoin, tes objectifs seront recalculés automatiquement.</div>
 
             <div class="field">
@@ -2813,7 +2854,10 @@
     return `
       <div class="portion-panel weekly-recap-panel">
         <div class="portion-sheet">
-          <h3>Récap de la semaine</h3>
+          <div class="sheet-header">
+            <h3>Récap de la semaine</h3>
+            <button class="sheet-close-btn" data-action="weekly-recap-skip" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">${weekRangeLabel(dates)} · ${daysLogged}/7 jours suivis</div>
 
           <div class="card-title" style="margin-top:4px;">Nutrition (moy./jour)</div>
@@ -2956,7 +3000,10 @@
     return `
       <div class="portion-panel settings-panel">
         <div class="portion-sheet">
-          <h3>Réglages</h3>
+          <div class="sheet-header">
+            <h3>Réglages</h3>
+            <button class="sheet-close-btn" data-action="close-settings" aria-label="Fermer">✕</button>
+          </div>
           <div class="food-per100">Personnalise les couleurs de l'application.</div>
 
           <div class="field">
