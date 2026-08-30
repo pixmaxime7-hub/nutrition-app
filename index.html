@@ -751,6 +751,13 @@
     margin-top: 5px;
     color: var(--ink-faint);
   }
+  .exo-comment{
+    font-size: 12px;
+    margin-top: 5px;
+    color: var(--ink-dim);
+    font-style: italic;
+    line-height: 1.4;
+  }
   .stat-row{
     display:flex;
     gap: 10px;
@@ -2249,6 +2256,10 @@
           ${FEELINGS.map(f => `<option value="${f.id}">${f.label}</option>`).join('')}
         </select>
       </div>
+      <div class="field">
+        <label>Commentaire (optionnel)</label>
+        <input type="text" id="${prefix}-comment" placeholder="Ex : douleur épaule, super forme, monter le poids la prochaine fois…">
+      </div>
     `;
   }
 
@@ -2260,6 +2271,7 @@
           <div class="exo-name">${e.exercise}</div>
           <div class="exo-meta">${e.sets} séries × ${e.reps} reps${e.weight ? ' · ' + e.weight + ' kg' : ''}</div>
           ${e.feelingLabel ? `<div class="exo-feeling">${e.feelingLabel}</div>` : ''}
+          ${e.comment ? `<div class="exo-comment">💬 ${e.comment}</div>` : ''}
         </div>
         <button class="del-btn" data-action="delete-exercise-from-session" data-session="${sessionId}" data-id="${e.id}" aria-label="Supprimer">✕</button>
       </div>
@@ -2517,6 +2529,7 @@
           weight: null,
           feeling: null,
           feelingLabel: null,
+          comment: null,
         })),
       };
       await saveSession(newSession);
@@ -2589,6 +2602,7 @@
           weight: null,
           feeling: null,
           feelingLabel: null,
+          comment: null,
         })),
       };
       await saveSession(session);
@@ -3243,6 +3257,8 @@
       const reps = parseInt(document.getElementById(prefix+'-reps').value, 10);
       const weight = parseFloat(document.getElementById(prefix+'-weight').value);
       const feelingId = document.getElementById(prefix+'-feeling').value;
+      const commentEl = document.getElementById(prefix+'-comment');
+      const comment = commentEl ? commentEl.value.trim() : '';
 
       if(!exercise || !sets || !reps){
         showToast('Renseigne au moins l\'exercice, les séries et les répétitions');
@@ -3256,6 +3272,7 @@
         weight: isNaN(weight) ? null : weight,
         feeling: feelingId || null,
         feelingLabel: feelingId ? feelingObj.label : null,
+        comment: comment || null,
       });
       state.trainingLastGroup = group;
       await saveSession(session);
