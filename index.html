@@ -781,6 +781,19 @@
     font-style: italic;
     line-height: 1.4;
   }
+  .analysis-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .analysis-list li{
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .analysis-list li:last-child{ border-bottom: none; }
   .stat-row{
     display:flex;
     gap: 10px;
@@ -2239,7 +2252,45 @@
       };
     });
 
-    return { sessionName: session.name, items, progressCount, plateauCount, newCount };
+    // --- Points forts / points faibles / pistes d'amélioration ---
+    const strengths = [];
+    const weaknesses = [];
+    const improvements = [];
+
+    items.forEach(it => {
+      if(it.icon === '💪'){
+        strengths.push(`${it.exercise} — ${it.message}`);
+      } else if(it.icon === '⭐'){
+        strengths.push(`${it.exercise} — nouvel exercice ajouté à ton suivi.`);
+      } else if(it.icon === '🔄'){
+        weaknesses.push(`${it.exercise} — ${it.message}`);
+        improvements.push(`${it.exercise} : essaie d'augmenter le poids ou les répétitions la prochaine fois pour sortir du plateau.`);
+      } else if(it.icon === '📉'){
+        weaknesses.push(`${it.exercise} — ${it.message}`);
+        improvements.push(`${it.exercise} : reviens à ta charge habituelle la prochaine fois si tu te sens en forme.`);
+      }
+    });
+
+    const hardExercises = session.exercises.filter(e => e.feeling === 'difficile');
+    const easyExercises = session.exercises.filter(e => e.feeling === 'facile');
+
+    if(easyExercises.length){
+      strengths.push(`Ressenti facile sur ${easyExercises.map(e => e.exercise).join(', ')} — tu peux sans doute augmenter la charge la prochaine fois.`);
+    }
+    if(hardExercises.length){
+      weaknesses.push(`Ressenti difficile sur ${hardExercises.map(e => e.exercise).join(', ')}.`);
+      improvements.push(`Prends un peu plus de repos avant de refaire ${hardExercises.map(e => e.exercise).join(', ')}, ou allège légèrement la charge.`);
+    }
+
+    session.exercises.filter(e => e.comment).forEach(e => {
+      improvements.push(`${e.exercise} — ta note : « ${e.comment} »`);
+    });
+
+    if(strengths.length === 0) strengths.push('Séance complétée — c\'est déjà une victoire, continue à rester régulier.');
+    if(weaknesses.length === 0) weaknesses.push('Rien à signaler, tout est stable ou en progression sur cette séance.');
+    if(improvements.length === 0) improvements.push('Continue sur cette lancée, essaie d\'augmenter légèrement la charge ou les répétitions la prochaine fois.');
+
+    return { sessionName: session.name, items, progressCount, plateauCount, newCount, strengths, weaknesses, improvements };
   }
 
   /* ---------------------------------------------------------------------
@@ -2708,6 +2759,22 @@
             <div class="stat-box"><div class="s-num">${data.newCount}</div><div class="s-label">Nouveaux</div></div>
           </div>
 
+          <div class="card-title" style="margin-top:4px;">💪 Points forts</div>
+          <ul class="analysis-list">
+            ${data.strengths.map(s => `<li>${s}</li>`).join('')}
+          </ul>
+
+          <div class="card-title" style="margin-top:14px;">⚠️ Points faibles</div>
+          <ul class="analysis-list">
+            ${data.weaknesses.map(s => `<li>${s}</li>`).join('')}
+          </ul>
+
+          <div class="card-title" style="margin-top:14px;">🎯 À améliorer</div>
+          <ul class="analysis-list">
+            ${data.improvements.map(s => `<li>${s}</li>`).join('')}
+          </ul>
+
+          <div class="card-title" style="margin-top:16px;">Détail par exercice</div>
           ${data.items.map(it => `
             <div class="exo-entry">
               <div class="exo-entry-info">
