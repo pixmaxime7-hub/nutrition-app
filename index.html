@@ -2299,7 +2299,7 @@
     if(weaknesses.length === 0) weaknesses.push('Rien à signaler, tout est stable ou en progression sur cette séance.');
     if(improvements.length === 0) improvements.push('Continue sur cette lancée, essaie d\'augmenter légèrement la charge ou les répétitions la prochaine fois.');
 
-    return { sessionName: session.name, items, progressCount, plateauCount, newCount, strengths, weaknesses, improvements };
+    const sessionGroups = [...new Set(session.exercises.map(e => e.group))]; const recoveryNotes = []; const varietyNotes = []; sessionGroups.forEach(group => { const pastForGroup = earlierSessions.filter(s => s.exercises.some(e => e.group === group)); if(pastForGroup.length === 0) return; const lastSession = pastForGroup[0]; const gapDays = Math.round((new Date(session.date+'T00:00:00') - new Date(lastSession.date+'T00:00:00')) / 86400000); if(gapDays <= 1){ recoveryNotes.push(`${group} : déjà travaillé ${gapDays === 0 ? 'aujourd\'hui même' : 'la veille'} (${defaultSessionName(lastSession.date).replace('Séance du ','')}) — pense à laisser 48h de récupération pour ce groupe.`); } else { const recentCount = pastForGroup.filter(s => { const d = Math.round((new Date(session.date+'T00:00:00') - new Date(s.date+'T00:00:00')) / 86400000); return d <= 7; }).length + 1; if(recentCount >= 3){ recoveryNotes.push(`${group} : ${recentCount}e passage cette semaine — vérifie que la récupération suit, surtout si tu sens de la fatigue.`); } } const currentExosForGroup = [...new Set(session.exercises.filter(e => e.group === group).map(e => e.exercise))]; const sessionsToCompare = [session, ...pastForGroup.slice(0, 2)]; if(sessionsToCompare.length >= 3){ const exoSets = sessionsToCompare.map(s => new Set(s.exercises.filter(e => e.group === group).map(e => e.exercise))); const allIdentical = exoSets.every(set => set.size === exoSets[0].size && [...set].every(x => exoSets[0].has(x))); if(allIdentical){ varietyNotes.push(`${group} : exactement les mêmes exercices (${currentExosForGroup.join(', ')}) depuis ${sessionsToCompare.length} séances — essaie une variante (prise, angle, machine ↔ poids libre) pour relancer la progression.`); } } }); return { sessionName: session.name, items, progressCount, plateauCount, newCount, strengths, weaknesses, improvements, recoveryNotes, varietyNotes };
   }
 
   /* ---------------------------------------------------------------------
@@ -2768,7 +2768,7 @@
             <div class="stat-box"><div class="s-num">${data.newCount}</div><div class="s-label">Nouveaux</div></div>
           </div>
 
-          <div class="card-title" style="margin-top:4px;">💪 Points forts</div>
+          <div class="card-title" style="margin-top:4px;">🧠 Analyse intelligente</div><ul class="analysis-list">${data.recoveryNotes.concat(data.varietyNotes).length ? data.recoveryNotes.concat(data.varietyNotes).map(s => `<li>${s}</li>`).join('') : '<li>Bonne répartition : pas de surcharge de groupe musculaire ni de routine figée détectée sur cette séance.</li>'}</ul>          <div class="card-title" style="margin-top:14px;">💪 Points forts</div>
           <ul class="analysis-list">
             ${data.strengths.map(s => `<li>${s}</li>`).join('')}
           </ul>
